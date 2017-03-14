@@ -1,1 +1,12 @@
 theme: jekyll-theme-minimal
+
+title : José Alonso Solís-Lemus
+author :
+  name : José Alonso Sol&iacute;s-Lemus
+  email : jose.solis-lemus@city.ac.uk 
+  github : alonsoJASL
+  twitter : jalonsitwo
+
+# Tell Github to use the kramdown markdown interpreter
+# (see https://help.github.com/articles/migrating-your-pages-site-from-maruku)
+markdown: kramdown
