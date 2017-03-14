@@ -1,47 +1,14 @@
----
-layout: frontpage
-title: Claudia Sol&iacute;s-Lemus
-description: Claudia Sol&iacute;s-Lemus is postdoc at University of Wisconsin - Madison working with Bret Larget on Bayesian phylogenetics
----
+## Welcome to my personal website
 
-<div class="navbar">
-  <div class="navbar-inner">
-      <ul class="nav">
-          <li><a href="http://pages.stat.wisc.edu/~claudia/cv.pdf">cv</a></li>
-          <li><a href="https://github.com/crsl4">github</a></li>
-          <li><a href="https://scholar.google.com/citations?user=GrUypj8AAAAJ&hl=en&oi=ao">google-scholar</a></li>
-          <li><a href="http://pages.stat.wisc.edu/~claudia/">uw-madison</a></li>
-          <li><a href="https://www.linkedin.com/in/claudia-solis-lemus-b64069122">linkedin</a></li>
-          <li><a href="https://www.athlinks.com/athletes/267606489">athlinks</a></li>
-      </ul>
-  </div>
-</div>
+I am a PhD Researcher at [City, University of London](https://city.ac.uk), working at
+the [Research Centre forBiomedical Engineering](https://www.city.ac.uk/biomedical-engineering-research-centre).
 
-<table class="wide">
-<tr>
-  <td class="left">
-    <a href="http://onlinelibrary.wiley.com/doi/10.1111/evo.12582/abstract">
-        <img src="assets/pics/ibpp.png" alt="iBPP" title="iBPP"/>
-    </a>
-  </td>
-  <td class="right">
-    <a href="http://sysbio.oxfordjournals.org/content/early/2016/05/04/sysbio.syw030.full.pdf?keytype=ref&ijkey=4YgLuAtchHF4QmS">
-        <img src="assets/pics/inconsistency.png" alt="Solis-Lemus et
-        al. (2016) Fig 3,7" title="Solis-Lemus et al. (2016) Fig 3,7"/>
-    </a>
-  </td>
-</tr>
-<tr>
-  <td class="left">
-    <a href="https://github.com/crsl4/PhyloNetworks.jl">
-        <img src="assets/pics/snaq3.png" alt="SNaQ" title="SNaQ"/>
-    </a>
-  </td>
-  <td class="right">
-    <a href="http://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005896">
-        <img src="assets/pics/snaq2.png" alt="Solis-Lemus,Ane (2016) Fig 9b" title="Solis-Lemus,Ane (2016) Fig 9b"/>
-    </a>
-  </td>
-</tr>
-</table>
+As you can see, this site is still under construction. 
 
+### Jekyll Themes
+
+Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/alonsoJASL/alonsojasl.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+
+### Support or Contact
+
+Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
