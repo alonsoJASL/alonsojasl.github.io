@@ -8,7 +8,7 @@ layout: home
 
 I am a PhD Researcher at [City, University of London](https://city.ac.uk),
  working at the
- [Research Centre forBiomedical Engineering](https://www.city.ac.uk/biomedical-engineering-research-centre).
+ [Research Centre for Biomedical Engineering](https://www.city.ac.uk/biomedical-engineering-research-centre).
 
 As you can see, this site is still under construction.
 
