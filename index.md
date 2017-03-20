@@ -1,9 +1,16 @@
+---
+# You don't need to edit this file, it's empty on purpose.
+# Edit theme's home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: home
+---
 ## Welcome to my personal website
 
-I am a PhD Researcher at [City, University of London](https://city.ac.uk), working at
-the [Research Centre forBiomedical Engineering](https://www.city.ac.uk/biomedical-engineering-research-centre).
+I am a PhD Researcher at [City, University of London](https://city.ac.uk),
+ working at the
+ [Research Centre forBiomedical Engineering](https://www.city.ac.uk/biomedical-engineering-research-centre).
 
-As you can see, this site is still under construction. 
+As you can see, this site is still under construction.
 
 ### Jekyll Themes
 
