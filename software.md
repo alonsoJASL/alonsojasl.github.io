@@ -9,8 +9,17 @@ reviewed and the most stable ones. However, feel free to dive into my
 interest there.
 
 ## Own
-+ [Anglegram](https://github.com/alonsoJASL/matlab.anglegram)
++ [Anglegram](https://github.com/alonsoJASL/matlab.anglegram) is a MATLAB software
+  designed to analyse the shape of the boundary of binary objects through the 
+  measurement of the inner angles in the boundary. We have developed anglegram 
+  to detect junctions.
++ [macrosight](https://github.com/alonsoJASL/macrosight) is a MATLAB software 
+  designed to analyse 3-layered images of macrophages moving. It uses the 
+  [PhagoSight](https://github.com/phagosight/phagosight) algorithms and adapts
+  it to images with overlapping cells. **Be careful, this is early development!**
 
 ## Collaborating
 + [PhagoSight](https://github.com/phagosight/phagosight), I collaborate
-  often for this code.
+  often for this code, which analyses fluorescent microscopy time-lapse
+  videos of neutrophils and other cells. You can read more about it 
+  in [here.](phagosight.org)
