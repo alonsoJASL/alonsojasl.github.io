@@ -17,8 +17,8 @@
 title: Personal website of Jose Alonso Solis Lemus
 email: jose.solis-lemus@city.ac.uk
 description: > # this means to ignore newlines until "baseurl:"
-  I am a PhD Researcher at City, University of London, currently working at the
-  Research Centre for Biomedical Engineering.
+  Find in this website access to my cv, research interests, publications,
+  Github code, and more!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://goo.gl/yVQBfX # the base hostname & protocol for your site
 twitter_username: jalonsitwo
