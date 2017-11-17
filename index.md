@@ -4,14 +4,14 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: home
 ---
-## About
+## about
 I am a PhD Researcher at [City, University of London](https://city.ac.uk),
 working in (bio)medical image analysis in cell tracking and shape analysis
 at the Research Centre for Biomedical Engineering
 [(RCBE).](https://www.city.ac.uk/biomedical-engineering-research-centre)
 You can find my institution's website [here](https://goo.gl/yVQBfX).
 
-## brief intro about me..
+## a brief background
 I studied Applied Mathematics and Telematics Engineering at the
 Instituto Tecnológico Autónomo de México [(ITAM)](www.itam.mx), in
 Mexico City. I have always had many interests, which I have been
