@@ -19,16 +19,16 @@ permalink: /publications/
   </div>
   <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-319-60964-5_69&amp;rft_id=urn%3Aisbn%3A978-3-319-60963-8%20978-3-319-60964-5&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Segmentation%20of%20Overlapping%20Macrophages%20Using%20Anglegram%20Analysis&amp;rft.btitle=Medical%20Image%20Understanding%20and%20Analysis&amp;rft.publisher=Springer%2C%20Cham&amp;rft.series=Communications%20in%20Computer%20and%20Information%20Science&amp;rft.aufirst=Jos%C3%A9%20Alonso&amp;rft.aulast=Sol%C3%ADs-Lemus&amp;rft.au=Jos%C3%A9%20Alonso%20Sol%C3%ADs-Lemus&amp;rft.au=Brian%20Stramer&amp;rft.au=Greg%20Slabaugh&amp;rft.au=Constantino%20Carlos%20Reyes-Aldasoro&amp;rft.date=2017-07-11&amp;rft.pages=792-803&amp;rft.spage=792&amp;rft.epage=803&amp;rft.isbn=978-3-319-60963-8%20978-3-319-60964-5&amp;rft.language=en"></span>
 </div>
-
-
+<br>
 
 ## For a general audience
+
 I collaborate as at IOP's [_medicalphysicsweb_](http://medicalphysicsweb.org),
 writing articles of scientific interest. These are aimed at a wider audience.
 The new site is being developed, in the meantime, you can find below a list of
-featured articles I have written.
+featured articles I have written. The latest articles written by me are listed 
+below.
 
-### Latest from me
 + **Tunable lens brings adjustable focus to fluorescence-guided surgeries.**
   Check it out [here](http://medicalphysicsweb.org/cws/article/research/69724).
 + **From photo, to 3D model, through to wound healing**. Check it out
