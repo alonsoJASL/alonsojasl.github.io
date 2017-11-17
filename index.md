@@ -4,12 +4,16 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: home
 ---
+
+| [CV](./images/mycv.pdf) | [github](https://github.com/alonsoJASL) | [google scholar](https://scholar.google.co.uk/citations?user=2_095cQAAAAJ&hl=en) |  [researchgate](https://www.researchgate.net/profile/Jose_Solis-Lemus) | [linkedin](www.linkedin.com/in/alonsosolislemus) |
+
 ## about
 I am a PhD Researcher at [City, University of London](https://city.ac.uk),
 working in (bio)medical image analysis in cell tracking and shape analysis
 at the Research Centre for Biomedical Engineering
 [(RCBE).](https://www.city.ac.uk/biomedical-engineering-research-centre)
 You can find my institution's website [here](https://goo.gl/yVQBfX).
+
 
 ## a brief background
 I studied Applied Mathematics and Telematics Engineering at the

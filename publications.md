@@ -3,7 +3,8 @@ layout: page
 title: Publications
 permalink: /publications/
 ---
-## selected
+## Selected
+
 <div class="csl-bib-body" style="line-height: 1.35; ">
   <div class="csl-entry" style="clear: left; ">
     <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[1]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">V. Ulman <i>et al.</i>, ‘An objective comparison of cell-tracking algorithms’, <i>Nature Methods</i>, Oct. 2017.</div>
@@ -20,19 +21,19 @@ permalink: /publications/
 </div>
 
 
-### submitted
 
-## for a general audience
+## For a general audience
 I collaborate as at IOP's [_medicalphysicsweb_](http://medicalphysicsweb.org),
 writing articles of scientific interest. These are aimed at a wider audience.
-The new site is being developed, in the meantime, below
+The new site is being developed, in the meantime, you can find below a list of
+featured articles I have written.
 
-### latest from me
+### Latest from me
 + **Tunable lens brings adjustable focus to fluorescence-guided surgeries.**
   Check it out [here](http://medicalphysicsweb.org/cws/article/research/69724).
 + **From photo, to 3D model, through to wound healing**. Check it out
   [here](http://medicalphysicsweb.org/cws/article/research/70241).
 
-### featuring my work
+### Featuring my work
 + **Automatic image algorithm separated overlapping cells** Check it out
 [here](http://medicalphysicsweb.org/cws/article/research/69719).
