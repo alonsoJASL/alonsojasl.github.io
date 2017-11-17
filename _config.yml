@@ -6,7 +6,8 @@
 # feature for the data you need to update frequently.
 #
 # For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# 'bundle exec jekyll serve'. If you change this file, please restart the server
+# process.
 
 # Site settings
 # These are used to personalize your new site. If you look in the HTML files,
@@ -16,10 +17,10 @@
 title: Personal website of Jose Alonso Solis Lemus
 email: jose.solis-lemus@city.ac.uk
 description: > # this means to ignore newlines until "baseurl:"
-  I am a PhD Researcher at City, University of London, working at the
-  Research Centre forBiomedical Engineering.
+  I am a PhD Researcher at City, University of London, currently working at the
+  Research Centre for Biomedical Engineering.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: https://goo.gl/yVQBfX # the base hostname & protocol for your site
 twitter_username: jalonsitwo
 github_username:  alonsoJASL
 
