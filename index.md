@@ -6,7 +6,7 @@ layout: home
 ---
 
 | Attribute | Link |
-|---------:|:-----------|
+|:---------|:-----------|
 | CV | [CV](./images/mycv.pdf) |  
 |github | [alonsoJASL](https://github.com/alonsoJASL) |
 | google | [scholar](https://scholar.google.co.uk/citations?user=2_095cQAAAAJ&hl=en) |
