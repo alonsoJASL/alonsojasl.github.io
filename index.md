@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 | Attribute | Link |
 |:---------|:-----------|
 | CV | [CV](./images/mycv.pdf) |  
@@ -10,7 +9,7 @@ layout: default
 | Research Gate | [Jose-SolisLemus](https://www.researchgate.net/profile/Jose_Solis-Lemus) | 
 | linkedin | [alonsosolisl](www.linkedin.com/in/alonsosolislemus) |
 
-## about
+# About
 I am a PhD Researcher at [City, University of London](https://city.ac.uk),
 working in (bio)medical image analysis in cell tracking and shape analysis
 at the Research Centre for Biomedical Engineering
