@@ -7,15 +7,6 @@ layout: home
 ## Welcome to my personal website
 
 I am a PhD Researcher at [City, University of London](https://city.ac.uk),
- working at the
- [Research Centre for Biomedical Engineering](https://www.city.ac.uk/biomedical-engineering-research-centre).
-
-As you can see, this site is still under construction.
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/alonsoJASL/alonsojasl.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+working in (bio)medical image analysis in cell tracking and shape analysis
+at the Research Centre for Biomedical Engineering
+[(RCBE)](https://www.city.ac.uk/biomedical-engineering-research-centre)
