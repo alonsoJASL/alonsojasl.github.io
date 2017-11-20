@@ -13,6 +13,8 @@ interest there.
   designed to analyse the shape of the boundary of binary objects through the 
   measurement of the inner angles in the boundary. We have developed anglegram 
   to detect junctions.
+  <img align="center" height="50%" width="50%" src="./images/anglegramexplanation.gif">
+  
 + [macrosight](https://github.com/alonsoJASL/macrosight) is a MATLAB software 
   designed to analyse 3-layered images of macrophages moving. It uses the 
   [PhagoSight](https://github.com/phagosight/phagosight) algorithms and adapts
