@@ -23,7 +23,7 @@ Mexico City. I have always had many interests, which I have been
 ~~struggling~~ trying to juggle.
 
 ### contact
-<img align="left" height="20%" rotate="180" width="20%" src="./images/Profilepic.jpeg">
+<img align="left" height="18%" rotate="180" width="18%" src="./images/Profilepic.jpeg">
 
 <div class="container">
     <div class="row-fluid">
@@ -38,6 +38,8 @@ Mexico City. I have always had many interests, which I have been
         </div>
     </div>
 </div>
+
+
 ```
  Email: jose [dot] solis-lemus {at} city [dot] ac.uk
 ```
