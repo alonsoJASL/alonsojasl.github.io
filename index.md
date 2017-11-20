@@ -23,6 +23,7 @@ Mexico City. I have always had many interests, which I have been
 ~~struggling~~ trying to juggle.
 
 ### contact
+<img align="right" rotate="90" height="25%" width="25%" src="./images/Profilepic.jpeg">
 <div class="container">
     <div class="row-fluid">
         <div class="span5">
@@ -35,16 +36,8 @@ Mexico City. I have always had many interests, which I have been
             London, UK<br/><br/>
 
             <div id="hide_email">
-            Email: <code>jose.</code><b>I</b><code>solis-lemus</code><b>don't</b><code>@</code><b>want</b><code></code><b>spam!
-            </b><code>ci</code><b>So</b><code></code><b>please</b><code>ty</code><b>leave
-            </b><code>.</code><b>me</b><code>ac</code><b>alone</b><code>.</code><b>!</b><code>uk</code><br/>
+            Email: <code>jose [dot] solis-lemus {at} city [dot] ac.uk </code><br/>
             </div>
-        </div>
-
-        <div class="span2">
-        <a href="../images/Profilepic.jpeg">
-            <img src="../images/Profilepic.jpeg"
-                  title="Jos&eacute; Alonso Sol&iacute;s-Lemus" alt="Jos&eacute; Alonso Sol&iacute;s-Lemus"/></a>
         </div>
     </div>
 </div>
