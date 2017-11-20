@@ -21,3 +21,32 @@ I studied Applied Mathematics and Telematics Engineering at the
 Instituto Tecnológico Autónomo de México [(ITAM)](www.itam.mx), in
 Mexico City. I have always had many interests, which I have been
 ~~struggling~~ trying to juggle.
+
+
+<div class="container">
+<h4><a name="contact"></a>contact</h4>
+
+    <div class="row-fluid">
+        <div class="span5">
+            Jos&eacute; Alonso Sol&iacute;s-Lemus<br/>
+            <a href="https://goo.gl/yVQBfX">Research Centre for Biomedical Engineering </a><br/>
+            <a href="city.ac.uk">City, University of London</a><br/>
+            CLG13, Tait Building, <br/>
+            Northhampton Square,<br/>
+            EC1V 0HB<br/>
+            London, UK<br/><br/>
+
+            <div id="hide_email">
+            Email: <code>jose.</code><b>I</b><code>solis-lemus</code><b>don't</b><code>@</code><b>want</b><code></code><b>spam!
+            </b><code>ci</code><b>So</b><code></code><b>please</b><code>ty</code><b>leave
+            </b><code>.</code><b>me</b><code>ac</code><b>alone</b><code>.</code><b>!</b><code>uk</code><br/>
+            </div>
+        </div>
+
+        <div class="span2">
+        <a href="../images/Profile.jpg">
+            <img src="../images/Profile.jpg"
+                  title="Jos&eacute; Alonso Sol&iacute;s-Lemus" alt="Jos&eacute; Alonso Sol&iacute;s-Lemus"/></a>
+        </div>
+    </div>
+</div>
