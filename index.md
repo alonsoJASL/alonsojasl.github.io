@@ -44,8 +44,8 @@ Mexico City. I have always had many interests, which I have been
         </div>
 
         <div class="span2">
-        <a href="../images/Profile.jpg">
-            <img src="../images/Profile.jpg"
+        <a href="../images/Profilepic.jpg">
+            <img src="../images/Profilepic.jpg"
                   title="Jos&eacute; Alonso Sol&iacute;s-Lemus" alt="Jos&eacute; Alonso Sol&iacute;s-Lemus"/></a>
         </div>
     </div>
