@@ -22,10 +22,8 @@ Instituto Tecnológico Autónomo de México [(ITAM)](www.itam.mx), in
 Mexico City. I have always had many interests, which I have been
 ~~struggling~~ trying to juggle.
 
-
+### contact
 <div class="container">
-<h4><a name="contact"></a>contact</h4>
-
     <div class="row-fluid">
         <div class="span5">
             Jos&eacute; Alonso Sol&iacute;s-Lemus<br/>
@@ -44,8 +42,8 @@ Mexico City. I have always had many interests, which I have been
         </div>
 
         <div class="span2">
-        <a href="../images/Profilepic.jpg">
-            <img src="../images/Profilepic.jpg"
+        <a href="../images/Profilepic.jpeg">
+            <img src="../images/Profilepic.jpeg"
                   title="Jos&eacute; Alonso Sol&iacute;s-Lemus" alt="Jos&eacute; Alonso Sol&iacute;s-Lemus"/></a>
         </div>
     </div>
