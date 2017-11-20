@@ -23,7 +23,7 @@ Mexico City. I have always had many interests, which I have been
 ~~struggling~~ trying to juggle.
 
 ### contact
-<img align="right" height="25%" rotate="90" width="25%" src="./images/Profilepic.jpeg">
+<img align="right" height="25%" rotate="180" width="25%" src="./images/Profilepic.jpeg">
 <div class="container">
     <div class="row-fluid">
         <div class="span5">
