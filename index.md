@@ -34,10 +34,9 @@ Mexico City. I have always had many interests, which I have been
             Northhampton Square,<br/>
             EC1V 0HB<br/>
             London, UK<br/><br/>
-
-            <div id="hide_email">
-            Email: <code>jose [dot] solis-lemus {at} city [dot] ac.uk </code><br/>
-            </div>
         </div>
     </div>
 </div>
+```
+ Email: jose [dot] solis-lemus {at} city [dot] ac.uk
+```
