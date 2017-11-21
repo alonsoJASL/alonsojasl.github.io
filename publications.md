@@ -3,6 +3,12 @@ layout: page
 title: Publications
 permalink: /publications/
 ---
+## Research Interests
+
+My [PhD project](https://goo.gl/doP13n) involves the automated analysis of 
+moving patterns in migrating cells’ movement. Other interests of him involve 
+robotics, machine learning, statistics and numerical analysis.
+
 ## Selected
 
 <div class="csl-bib-body" style="line-height: 1.35; ">
