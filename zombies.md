@@ -1,7 +1,7 @@
 ---
 layout: page
-title: z.Hobbies
-permalink: /hobbies/
+title: Hobbies
+permalink: /zombies/
 ---
 
 My personal hobbies include:
