@@ -2,11 +2,11 @@
 layout: default
 ---
 
-+ [CV](./images/mycv.pdf) 
++ [CV](./images/mycv.pdf)
 + [github](https://github.com/alonsoJASL)
 + [google scholar](https://scholar.google.co.uk/citations?user=2_095cQAAAAJ&hl=en)
-+ [ResearchGate](https://www.researchgate.net/profile/Jose_Solis-Lemus) 
-+ [linkedin](www.linkedin.com/in/alonsosolislemus)
++ [ResearchGate](https://www.researchgate.net/profile/Jose_Solis-Lemus)
++ [linkedin](https://www.linkedin.com/in/alonsosolislemus)
 
 # About
 I am a PhD Researcher at [City, University of London](https://goo.gl/yVQBfX),
@@ -16,11 +16,11 @@ at the Research Centre for Biomedical Engineering
 You can find more about my research project [here](https://goo.gl/doP13n).
 
 
-## a brief background 
+## a brief background
 I studied Applied Mathematics and Telematics Engineering at the
 Instituto Tecnológico Autónomo de México [(ITAM)](www.itam.mx), in
-Mexico City. I have always had many interests, which I have been
-~~struggling~~ trying to juggle.
+Mexico City. I have many interests, both academic and
+extracurricular. You may find about them in this website.
 
 ### contact
 <img align="right" height="18%" rotate="180" width="18%" src="./images/Profilepic.jpeg">

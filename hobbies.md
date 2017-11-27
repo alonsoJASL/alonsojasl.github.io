@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hobbies
+title: z.Hobbies
 permalink: /hobbies/
 ---
 
