@@ -17,6 +17,11 @@ permalink: /teaching/
 
 ### Teaching experience
 
+#### Sessional Tutor: Kaplan International College, London 
++ **Applied Mathematics** Term: Summer, 2018.
++ **Foundation Mathematics** Term: Summer, 2018 & Spring 2018.
++ **Statistics** Term: Summer, 2018 & Spring, 2018
+
 #### Visiting Lecturer
 
 + **Introduction to Mathematics** Term: Summer 2014. 
