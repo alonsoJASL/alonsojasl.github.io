@@ -5,4 +5,8 @@ permalink: /zombies/
 ---
 
 My personal hobbies include:
-+ Training at [CitySport](citysport.org.uk) and sometimes running.
++ Training at [CitySport](citysport.org.uk) 
++ Running
++ Drawing 
++ Music
+
