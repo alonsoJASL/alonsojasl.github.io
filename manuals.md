@@ -31,10 +31,16 @@ using the installer appropriate open-source installer and on the latest version
 (5.12).
 
 ### Clone and build the latest MITK version
+When cloning, you need to make sure you are using a stable version of MITK.
+At the moment of writing this guide, the latest version is `v2018.04.2`, and
+the stable version is `v2018.04.2`, thus, careful when cloning:
 ```bash
+# Normal cloning
 git clone https://phabricator.mitk.org/source/mitk.git MITK
-mkdir mitk-superbuild
-cd mitk-superbuild
+```
+```bash
+# Cloning the right branch
+git clone --branch v2018.04 https://phabricator.mitk.org/source/mitk.git MITKstable
 ```
 Now, to install, you need to specify the directory you have installed Qt in:
 ```bash
