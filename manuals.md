@@ -4,12 +4,15 @@ title: Manuals
 permalink: /manuals/
 ---
 Various manuals.
+
 # MITK Install manual
 
 From the **Build instructions** found
 [here](http://docs.mitk.org/2018.04/BuildInstructionsPage.html),
 with included terminal commands and tips.
+
 ## Instalation in Ubuntu (16.04)
+
 ### Prerequisites
 Some of this might have already be installed in your computer. A list of
 commands to install them are included at end of this document (**Appendix**).
@@ -39,12 +42,7 @@ ccmake -DCMAKE_PREFIX_PATH=/PATH/TO/Qt/5.12.2/gcc_64 ../MITK
 ```
 ![image](./images/cmake1.png)
 
-Press `c` to configure. If everything was installed correctly, you should see
-something similar to
-
-![image](./images/cmake2.png)
-
-Press `g` to Generate.
+Press `c` to configure. IThen press `g` to Generate.
 
 ![image](./images/cmake3.png)
 
@@ -55,6 +53,7 @@ installation: `make -j<n>`, where `<n>` corresponds to the number of threads
 to be used, for example: `make -j6` for six threads.
 
 # Appendix. Install prerequisites
+
 ## Reinstall CMake
 1. Remove the current CMake: `sudo apt remove cmake`.
 2. Download the appropriate binary distribution from
