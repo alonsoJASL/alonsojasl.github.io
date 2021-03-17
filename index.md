@@ -2,11 +2,8 @@
 layout: default
 ---
 
-+ [CV](./images/mycv.pdf)
-+ [github](https://github.com/alonsoJASL)
-+ [google scholar](https://scholar.google.co.uk/citations?user=2_095cQAAAAJ&hl=en)
-+ [ResearchGate](https://www.researchgate.net/profile/Jose_Solis-Lemus)
-+ [linkedin](https://www.linkedin.com/in/alonsosolislemus)
+| [CV](./images/mycv.pdf) | [github](https://github.com/alonsoJASL) | [google scholar](https://scholar.google.co.uk/citations?user=2_095cQAAAAJ&hl=en) | [ResearchGate](https://www.researchgate.net/profile/Jose_Solis-Lemus) | [linkedin](https://www.linkedin.com/in/alonsosolislemus) |
+|-------------------------|-----------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------|----------------------------------------------------------|
 
 # About
 I am a postdoc researcher at the Cardio Electro Mechanics Research Group 
