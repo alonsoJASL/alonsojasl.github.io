@@ -9,6 +9,9 @@ layout: default
 + [linkedin](https://www.linkedin.com/in/alonsosolislemus)
 
 # About
+I am a postdoc researcher at the Cardio Electro Mechanics Research Group 
+(@CemrgAppDevelopers), where I currently develop image processing and 
+computer vision algorithms for the analysis of cardiac images.
 I am a PhD Researcher at [City, University of London](https://goo.gl/yVQBfX),
 working in (bio)medical image analysis in cell tracking and shape analysis
 at the Research Centre for Biomedical Engineering
@@ -16,11 +19,17 @@ at the Research Centre for Biomedical Engineering
 You can find more about my research project [here](https://goo.gl/doP13n).
 
 
-## a brief background
-I studied Applied Mathematics and Telematics Engineering at the
-Instituto Tecnológico Autónomo de México [(ITAM)](www.itam.mx), in
-Mexico City. I have many interests, both academic and
-extracurricular. You may find about them in this website.
+## A brief background
+I graduated from Instituto Tecnologico Autonomo de México (ITAM) in Telematics Engineering 
+(2013) and Applied Mathematics (2014). My PhD was in Biomedical Image Analysis working at the 
+School of Mathematics, Computer Science and Engineering (SMCSE) at City, University of London, 
+in particular [(RCBE).](https://www.city.ac.uk/biomedical-engineering-research-centre). 
+My [PhD research](https://goo.gl/yVQBfX) focused on the automated analysis of moving patterns 
+in migrating cells’ movement. 
+
+## Interesting projects I contribute
+
+
 
 ### contact
 <img align="right" height="18%" rotate="180" width="18%" src="./images/Profilepic.jpeg">
