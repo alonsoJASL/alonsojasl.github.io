@@ -1,9 +1,25 @@
 ---
 layout: default
 ---
-
-| [CV](./images/mycv.pdf) | [github](https://github.com/alonsoJASL) | [google scholar](https://scholar.google.co.uk/citations?user=2_095cQAAAAJ&hl=en) | [ResearchGate](https://www.researchgate.net/profile/Jose_Solis-Lemus) | [linkedin](https://www.linkedin.com/in/alonsosolislemus) |
-|-------------------------|-----------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------|----------------------------------------------------------|
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky"><a href="./images/mycv.pdf"><span style="color:#905">[CV](./images/mycv.pdf)</span></a></th>
+    <th class="tg-0pky"><a href="https://github.com/alonsoJASL"><span style="color:#905">[github](https://github.com/alonsoJASL)</span></a></th>
+    <th class="tg-0pky"><a href="https://scholar.google.co.uk/citations?user=2_095cQAAAAJ&hl=en"><span style="color:#905">[google scholar](https://scholar.google.co.uk/citations?user=2_095cQAAAAJ&amp;hl=en)</span></a></th>
+    <th class="tg-0pky"><a href="https://www.researchgate.net/profile/Jose_Solis-Lemus"><span style="color:#905">[ResearchGate](https://www.researchgate.net/profile/Jose_Solis-Lemus)</span></a></th>
+    <th class="tg-0pky"><a href="https://www.linkedin.com/in/alonsosolislemus"><span style="color:#905">[linkedin](https://www.linkedin.com/in/alonsosolislemus)</span></a></th>
+  </tr>
+</thead>
+</table>
 
 # About
 I am a postdoc researcher at the Cardio Electro Mechanics Research Group 
