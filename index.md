@@ -10,7 +10,7 @@ layout: default
 
 # About
 I am a postdoc researcher at the Cardio Electro Mechanics Research Group 
-(@CemrgAppDevelopers), where I currently develop image processing and 
+[CEMRG](www.cemrg.com), where I currently develop image processing and 
 computer vision algorithms for the analysis of cardiac images.
 I am a PhD Researcher at [City, University of London](https://goo.gl/yVQBfX),
 working in (bio)medical image analysis in cell tracking and shape analysis
@@ -28,7 +28,10 @@ My [PhD research](https://goo.gl/yVQBfX) focused on the automated analysis of mo
 in migrating cells’ movement. 
 
 ## Interesting projects I contribute
-
++ [CemrgApp](https://github.com/CemrgAppDevelopers/CemrgApp): An Interactive Medical Imaging Platform with Image Processing and Computer Vision Toolkits for Cardiovascular Research
++ [SplitVent](https://github.com/splitvent/splitvent): A single-ventilator/dual patient computer model.
++ [macrosight](https://github.com/alonsoJASL/macrosight): A MATLAB package for the analysis of overlapping macrophages.
++ [anglegram](https://github.com/alonsoJASL/matlab.anglegram): Multiscale angle measurement of image boundaries
 
 
 ### contact
@@ -38,11 +41,11 @@ in migrating cells’ movement.
     <div class="row-fluid">
         <div class="span5">
             Jos&eacute; Alonso Sol&iacute;s-Lemus<br/>
-            <a href="https://goo.gl/yVQBfX">Research Centre for Biomedical Engineering </a><br/>
-            <a href="city.ac.uk">City, University of London</a><br/>
-            CLG13, Tait Building, <br/>
-            Northhampton Square,<br/>
-            EC1V 0HB<br/>
+            <a href="https://www.kcl.ac.uk/people/jose-alonso-solis-lemus">AAA </a><br/>
+            <a href="kcl.ac.uk">King's College London</a><br/>
+            4th floor, North Wing, <br/>
+            St Thomas' Hospital,<br/>
+            SE1 7EH<br/>
             London, UK<br/><br/>
         </div>
     </div>
@@ -50,5 +53,5 @@ in migrating cells’ movement.
 
 
 ```
- Email: jose [dot] solis-lemus {at} city [dot] ac.uk
+ Email: jose [dot] solislemus {at} kcl [dot] ac.uk  jose [dot] solis-lemus {at} city [dot] ac.uk
 ```
