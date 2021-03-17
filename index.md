@@ -41,7 +41,7 @@ in migrating cells’ movement.
     <div class="row-fluid">
         <div class="span5">
             Jos&eacute; Alonso Sol&iacute;s-Lemus<br/>
-            <a href="https://www.kcl.ac.uk/people/jose-alonso-solis-lemus">AAA </a><br/>
+            <a href="https://www.kcl.ac.uk/people/jose-alonso-solis-lemus"> </a><br/>
             <a href="kcl.ac.uk">King's College London</a><br/>
             4th floor, North Wing, <br/>
             St Thomas' Hospital,<br/>
