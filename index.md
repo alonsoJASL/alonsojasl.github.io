@@ -25,7 +25,7 @@ in particular [(RCBE).](https://www.city.ac.uk/biomedical-engineering-research-c
 My [PhD research](https://goo.gl/yVQBfX) focused on the automated analysis of moving patterns 
 in migrating cells’ movement. 
 
-# interesting projects I contribute
+# interesting projects I contribute to
 + [CemrgApp](https://github.com/CemrgAppDevelopers/CemrgApp): An Interactive Medical Imaging Platform with Image Processing and Computer Vision Toolkits for Cardiovascular Research
 + [SplitVent](https://github.com/splitvent/splitvent): A single-ventilator/dual patient computer model.
 + [macrosight](https://github.com/alonsoJASL/macrosight): A MATLAB package for the analysis of overlapping macrophages.
