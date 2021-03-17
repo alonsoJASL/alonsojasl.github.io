@@ -1,16 +1,15 @@
 ---
 layout: default
 ---
-<table class="tg">
-<thead>
+ 
+<table>
   <tr>
-    <th class="tg-0pky"><a href="./images/mycv.pdf"><span style="color:#905">CV</span></a></th>
-    <th class="tg-0pky"><a href="https://github.com/alonsoJASL"><span style="color:#905">github</span></a></th>
-    <th class="tg-0pky"><a href="https://scholar.google.co.uk/citations?user=2_095cQAAAAJ&hl=en"><span style="color:#905">google scholar</span></a></th>
-    <th class="tg-0pky"><a href="https://www.researchgate.net/profile/Jose_Solis-Lemus"><span style="color:#905">ResearchGate</span></a></th>
-    <th class="tg-0pky"><a href="https://www.linkedin.com/in/alonsosolislemus"><span style="color:#905">linkedin</span></a></th>
+    <th><a href="./images/mycv.pdf"><span style="color:#905"> CV </span></a></th>
+    <th><a href="https://github.com/alonsoJASL"><span style="color:#905"> github </span></a></th>
+    <th><a href="https://scholar.google.co.uk/citations?user=2_095cQAAAAJ&hl=en"><span style="color:#905"> google scholar </span></a></th>
+    <th><a href="https://www.researchgate.net/profile/Jose_Solis-Lemus"><span style="color:#905"> ResearchGate </span></a></th>
+    <th><a href="https://www.linkedin.com/in/alonsosolislemus"><span style="color:#905"> linkedin </span></a></th>
   </tr>
-</thead>
 </table>
 
 # About
