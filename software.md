@@ -34,5 +34,5 @@ permalink: /software/
 If you are looking for pre-release binaries of some CermgApp functionalitites, 
 have a look at the list below: 
 
-+ Atrial fibres pipeline 
-+ Standalone scar functionalities for LGE types comparisons
++ (Atrial fibres pipeline (v1.4))[https://github.com/alonsoJASL/CemrgApp/releases/tag/v2.2_afib-v1.4] 
++ (Standalone scar functionalities for LGE types comparisons (v0.2) )[https://github.com/alonsoJASL/CemrgApp/releases/tag/v2.2_scar_adv-v0.2]
