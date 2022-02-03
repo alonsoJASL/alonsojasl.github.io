@@ -5,6 +5,12 @@ permalink: /manuals/
 ---
 Various manuals.
 
+# Basic linux installs 
+```sh
+sudo apt update 
+sudo apt install -y build-essential dbus gfortran git libglu1-mesa-dev:amd64 libgmp3-dev libgtk2.0-0 libmpfi-dev libmpfr-dev  libtbb-dev mesa-common-dev:amd64 unzip  wget zlib1g-dev:amd64 libxt-dev libfontconfig1 libtiff5-dev libwrap0-dev
+```
+
 # MITK Install manual
 
 From the **Build instructions** found
