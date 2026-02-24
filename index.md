@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
- 
+
 <table>
   <tr>
     <th><a href="./images/mycv.pdf"><span style="color:#905"> CV </span></a></th>
@@ -13,43 +13,28 @@ layout: default
 </table>
 
 # about
-I am a postdoc researcher at the Cardio Electro Mechanics Research Group 
-[CEMRG](www.cemrg.com), where I currently develop image processing and 
-computer vision algorithms for the analysis of cardiac images.
+I am a Senior Software Engineer at Imperial College London, where I design and maintain production-grade data pipelines and software platforms for cardiovascular imaging research. My work sits at the intersection of software engineering and clinical practice: building systems that are reliable, maintainable, and usable by clinicians and researchers without software expertise.
 
-# a brief background
-I graduated from Instituto Tecnologico Autonomo de México (ITAM) in Telematics Engineering 
-(2013) and Applied Mathematics (2014). My PhD was in Biomedical Image Analysis working at the 
-School of Mathematics, Computer Science and Engineering (SMCSE) at City, University of London, 
-in particular [(RCBE).](https://www.city.ac.uk/biomedical-engineering-research-centre). 
-My [PhD research](https://goo.gl/yVQBfX) focused on the automated analysis of moving patterns 
-in migrating cells’ movement. 
+# background
+I hold a PhD in Biomedical Engineering from City, University of London, and dual degrees in Applied Mathematics and Telematics Engineering from Instituto Tecnológico Autónomo de México (ITAM). I have over six years of professional experience building data-intensive systems in clinical research environments, with deep expertise in Python backend architecture, containerised workflows, and CI/CD.
 
-# interesting projects I contribute to
-+ [CemrgApp](https://github.com/CemrgAppDevelopers/CemrgApp): An Interactive Medical Imaging Platform with Image Processing and Computer Vision Toolkits for Cardiovascular Research
-+ [SplitVent](https://github.com/splitvent/splitvent): A single-ventilator/dual patient computer model.
-+ [macrosight](https://github.com/alonsoJASL/macrosight): A MATLAB package for the analysis of overlapping macrophages.
-+ [anglegram](https://github.com/alonsoJASL/matlab.anglegram): Multiscale angle measurement of image boundaries
-
+# selected projects
++ [pycemrg](https://github.com/OpenHeartDevelopers): Modular Python library suite for cardiovascular research engineering, featuring contract-driven architecture, CLI tooling, and Docker-based deployment workflows.
++ [CardioForm](https://github.com/OpenHeartDevelopers/cardio-form): Containerised ML inference service for automated cardiac segmentation, with model versioning, output validation, and CLI orchestration.
++ [cardioscar](https://github.com/alonsoJASL/cardioscar): Production refactor of a published TensorFlow training pipeline to PyTorch, achieving a 36x training speedup while maintaining statistical equivalence with the original model.
++ [CemrgApp](https://github.com/CemrgAppDevelopers/CemrgApp): C++ clinical imaging platform for cardiovascular research, used across 40+ international studies.
 
 # contact
-<img align="right" height="18%" rotate="180" width="18%" src="./images/Profilepic.jpeg">
+<img align="right" height="18%" width="18%" src="./images/Profilepic.jpeg">
 
 <div class="container">
     <div class="row-fluid">
         <div class="span5">
-            Jos&eacute; Alonso Sol&iacute;s-Lemus<br/>
-            <a href="https://www.kcl.ac.uk/people/jose-alonso-solis-lemus"> </a><br/>
-            <a href="kcl.ac.uk">King's College London</a><br/>
-            4th floor, North Wing, <br/>
-            St Thomas' Hospital,<br/>
-            SE1 7EH<br/>
+            José Alonso Solís-Lemus<br/>
+            Imperial College London<br/>
             London, UK<br/><br/>
         </div>
     </div>
 </div>
 
-
-```
- Email: jose [dot] solislemus {at} kcl [dot] ac.uk  jose [dot] solis-lemus {at} city [dot] ac.uk
-```
+For enquiries, connect via <a href="https://www.linkedin.com/in/alonsosolislemus">LinkedIn</a>.

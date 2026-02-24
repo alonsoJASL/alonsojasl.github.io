@@ -1,0 +1,1065 @@
+--- START FILE: manuals.md ---
+---
+layout: page
+title: Manuals
+permalink: /manuals/
+---
+Various manuals.
+
+# Basic linux installs 
+```sh
+sudo apt update 
+sudo apt install -y build-essential dbus gfortran git libglu1-mesa-dev:amd64 libgmp3-dev libgtk2.0-0 libmpfi-dev libmpfr-dev  libtbb-dev mesa-common-dev:amd64 unzip  wget zlib1g-dev:amd64 libxt-dev libfontconfig1 libtiff5-dev libwrap0-dev
+```
+
+# MITK Install manual
+
+From the **Build instructions** found
+[here](http://docs.mitk.org/2018.04/BuildInstructionsPage.html),
+with included terminal commands and tips.
+
+## Instalation in Ubuntu (16.04)
+
+### Prerequisites
+Some of this might have already be installed in your computer. A list of
+commands to install them are included at end of this document (**Appendix**).
+1. Install git: `sudo apt-get install git-core`
+2. Check that you have the correct version of Cmake: `cmake --version`, you
+should get an output similar to:
+```
+> cmake version 3.13.X
+> CMake suite maintained and supported by Kitware (kitware.com/cmake).
+```
+If this is not the case, you might need to reinstall CMake. Go to the
+**Appendix** for instructions on how to do that.
+
+3. Get [Qt here](http://download.qt.io/official_releases/qt/5.12/5.12.2/),
+using the installer appropriate open-source installer and on the latest version
+(5.12).
+
+### Clone and build the latest MITK version
+When cloning, you need to make sure you are using a stable version of MITK.
+At the moment of writing this guide, the latest version is `v2018.04.2`, and
+the stable version is `v2018.04.2`, thus, careful when cloning:
+```bash
+# Normal cloning
+git clone https://phabricator.mitk.org/source/mitk.git MITK
+```
+```bash
+# Cloning the right branch
+git clone --branch v2018.04 https://phabricator.mitk.org/source/mitk.git MITKstable
+```
+Now, to install, you need to specify the directory you have installed Qt in:
+```bash
+ccmake -DCMAKE_PREFIX_PATH=/PATH/TO/Qt/5.12.2/gcc_64 ../MITK
+```
+![image](./images/cmake1.png)
+
+Press `c` to configure. IThen press `g` to Generate.
+
+![image](./images/cmake3.png)
+
+### Compile
+Once in the `mitk-build` folder, simply use the `make` command. Alternatively,
+if supported by your computer, you can set the number of threads for the
+installation: `make -j<n>`, where `<n>` corresponds to the number of threads
+to be used, for example: `make -j6` for six threads.
+
+# Appendix. Install prerequisites
+
+## Reinstall CMake
+1. Remove the current CMake: `sudo apt remove cmake`.
+2. Download the appropriate binary distribution from
+[here](https://cmake.org/download/). For a linux machine this was the
+`cmake-3.14.0-Linux-x86_64.sh` file.
+3. Give permissions and run executable:
+```bash
+chmod +x cmake-3.14.0-Linux-x86_64.sh
+./cmake-3.14.0-Linux-x86_64.sh
+```
+4. Make `cmake` available system wide with a symbolic link:
+```bash
+sudo ln -s /PATH/TO/CMAKE/bin/* /usr/local/bin
+```
+**Do not just copy and paste the last command, instead change `/PATH/TO/CMAKE`
+with the full path where you downloaded the binary.**
+5. Check the instalation with `cmake --version`.
+
+## Qt
+1. Look for the appropriate installer
+[here](http://download.qt.io/official_releases/qt/5.12/5.12.2/), the file
+is called `qt-opensource-linux-x64-3.0.6-online.run`.
+2. Either download it from the browser or with `wget`
+```bash
+wget http://download.qt.io/official_releases/qt/5.12/5.12.2/qt-opensource-linux-x64-5.12.2.run
+```
+3. Give permissions to the file and run:
+```bash
+chmod +x qt-opensource-linux-x64-5.12.2.run
+./qt-opensource-linux-x64-5.12.2.run
+```
+4. Follow the instructions, when choosing to install all components, like in
+the image below:
+
+![image](./images/qtSelection.png)
+
+## After Qt
+When you finish installing Qt, take note of the following:
++ The directory you have installed it in, referred to in this manual as
+`/PATH/TO/Qt`
++ Install OpenGL libraries:
+```bash
+sudo apt-get install mesa-common-dev
+sudo apt-get install libglu1-mesa-dev -y
+```
++ Install other useful libraries and programs, in case they have not been
+installed:
+```bash
+sudo apt-get install libfontconfig1
+sudo apt-get install libxt-dev
+sudo apt-get install libtiff5-dev
+sudo apt install doxygen
+```
+## Useful resources and websites
++ https://wiki.qt.io/Install_Qt_5_on_Ubuntu
++ http://docs.mitk.org/2018.04/BuildInstructionsPage.html
++
+
+--- END FILE: manuals.md ---
+
+--- START FILE: zombies.md ---
+---
+layout: page
+title: Hobbies
+permalink: /zombies/
+---
+
+My personal hobbies include:
++ Training at [CitySport](citysport.org.uk) 
++ Running
++ Drawing 
++ Music
+
+
+--- END FILE: zombies.md ---
+
+--- START FILE: software.md ---
+---
+layout: page
+title: Software
+permalink: /software/
+---
+
+# List of main personal projects and collaborations 
+## Main repositories 
++ [CemrgApp](https://github.com/CemrgDevelopers/CemrgApp) is an MITK based 
+  interactive medical imaging application with image processing and computer 
+  vision toolkits for cardiovascular research. 
+  
++ [macrosight](https://github.com/alonsoJASL/macrosight) is a MATLAB software 
+  designed to analyse 3-layered images of macrophages moving. It uses the 
+  [PhagoSight](https://github.com/phagosight/phagosight) algorithms and adapts
+  it to images with overlapping cells. 
+  
+## Additional repositories 
++ [SplitVent](https://github.com/splitvent/splitvent) A Simulated 
+  Single Ventilator/Dual Patient Ventilation Strategy for Acute Respiratory 
+  Distress Syndrome during the COVID-19 Pandemic.
+
++ [Anglegram](https://github.com/alonsoJASL/matlab.anglegram) is a MATLAB software
+  designed to analyse the shape of the boundary of binary objects through the 
+  measurement of the inner angles in the boundary. We have developed anglegram 
+  to detect junctions.  
+
++ [PhagoSight](https://github.com/phagosight/phagosight), I **collaborate**
+  often for this code, which analyses fluorescent microscopy time-lapse
+  videos of neutrophils and other cells. You can read more about it 
+  in [here.](phagosight.org)
+
+# CemrgApp developing functionalities
+If you are looking for pre-release binaries of some CermgApp functionalitites, 
+have a look at the list below: 
+
++ [Atrial fibres pipeline (v1.4)](https://github.com/alonsoJASL/CemrgApp/releases/tag/v2.2_afib-v1.4)
++ [Standalone scar functionalities for LGE types comparisons (v0.2)](https://github.com/alonsoJASL/CemrgApp/releases/tag/v2.2_scar_adv-v0.2)
+
+--- END FILE: software.md ---
+
+--- START FILE: publications.md ---
+---
+layout: page
+title: Publications
+permalink: /publications/
+---
+## Research Interests
+
+My [PhD project](https://goo.gl/doP13n) involves the automated analysis of 
+moving patterns in migrating cells’ movement. Other interests of mine involve 
+robotics, machine learning, statistics and numerical analysis.
+
+## Selected
+
+<div class="csl-bib-body" style="line-height: 2; ">
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">1.</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">Solís-Lemus, J. A., Stramer, B., Slabaugh, G. &amp; Reyes-Aldasoro, C. C. Segmentation and Shape Analysis of Macrophages Using Anglegram Analysis. <i>Journal of Imaging</i> <b>4,</b> 2 (2017).</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.3390%2Fjimaging4010002&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Segmentation%20and%20Shape%20Analysis%20of%20Macrophages%20Using%20Anglegram%20Analysis&amp;rft.jtitle=Journal%20of%20Imaging&amp;rft.volume=4&amp;rft.issue=1&amp;rft.aufirst=Jos%C3%A9%20Alonso&amp;rft.aulast=Sol%C3%ADs-Lemus&amp;rft.au=Jos%C3%A9%20Alonso%20Sol%C3%ADs-Lemus&amp;rft.au=Brian%20Stramer&amp;rft.au=Greg%20Slabaugh&amp;rft.au=Constantino%20Carlos%20Reyes-Aldasoro&amp;rft.date=2017-12-21&amp;rft.pages=2&amp;rft.language=en"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">2.</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">Solis-Lemus, J. A., Huang, Y., Wlodkowic, D. &amp; Reyes-Aldasoro, C. C. Microfluidic environment and tracking analysis for the observation of Artemia Franciscana. in 4.1-4.8 (British Machine Vision Association, 2015). doi:<a href="https://doi.org/10.5244/C.29.MVAB.4">10.5244/C.29.MVAB.4</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.5244%2FC.29.MVAB.4&amp;rft_id=urn%3Aisbn%3A978-1-901725-57-5&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Microfluidic%20environment%20and%20tracking%20analysis%20for%20the%20observation%20of%20Artemia%20Franciscana&amp;rft.publisher=British%20Machine%20Vision%20Association&amp;rft.aufirst=Jose%20Alonso&amp;rft.aulast=Solis-Lemus&amp;rft.au=Jose%20Alonso%20Solis-Lemus&amp;rft.au=Yushi%20Huang&amp;rft.au=Donald%20Wlodkowic&amp;rft.au=Constantino%20Carlos%20Reyes-Aldasoro&amp;rft.date=2015&amp;rft.pages=4.1-4.8&amp;rft.spage=4.1&amp;rft.epage=4.8&amp;rft.isbn=978-1-901725-57-5&amp;rft.language=en"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">3.</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">Solís-Lemus, J. A., Stramer, B., Slabaugh, G. &amp; Reyes-Aldasoro, C. C. Segmentation of Overlapping Macrophages Using Anglegram Analysis. in <i>Medical Image Understanding and Analysis</i> 792–803 (Springer, Cham, 2017). doi:<a href="https://doi.org/10.1007/978-3-319-60964-5_69">10.1007/978-3-319-60964-5_69</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-319-60964-5_69&amp;rft_id=urn%3Aisbn%3A978-3-319-60963-8%20978-3-319-60964-5&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Segmentation%20of%20Overlapping%20Macrophages%20Using%20Anglegram%20Analysis&amp;rft.btitle=Medical%20Image%20Understanding%20and%20Analysis&amp;rft.publisher=Springer%2C%20Cham&amp;rft.series=Communications%20in%20Computer%20and%20Information%20Science&amp;rft.aufirst=Jos%C3%A9%20Alonso&amp;rft.aulast=Sol%C3%ADs-Lemus&amp;rft.au=Jos%C3%A9%20Alonso%20Sol%C3%ADs-Lemus&amp;rft.au=Brian%20Stramer&amp;rft.au=Greg%20Slabaugh&amp;rft.au=Constantino%20Carlos%20Reyes-Aldasoro&amp;rft.date=2017-07-11&amp;rft.pages=792-803&amp;rft.spage=792&amp;rft.epage=803&amp;rft.isbn=978-3-319-60963-8%20978-3-319-60964-5&amp;rft.language=en"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">4.</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">Ulman, V. <i>et al.</i> An objective comparison of cell-tracking algorithms. <i>Nature Methods</i> (2017). doi:<a href="https://doi.org/10.1038/nmeth.4473">10.1038/nmeth.4473</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1038%2Fnmeth.4473&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=An%20objective%20comparison%20of%20cell-tracking%20algorithms&amp;rft.jtitle=Nature%20Methods&amp;rft.stitle=Nature%20Methods&amp;rft.aufirst=Vladim%C3%ADr&amp;rft.aulast=Ulman&amp;rft.au=Vladim%C3%ADr%20Ulman&amp;rft.au=Martin%20Ma%C5%A1ka&amp;rft.au=Klas%20E.%20G.%20Magnusson&amp;rft.au=Olaf%20Ronneberger&amp;rft.au=Carsten%20Haubold&amp;rft.au=Nathalie%20Harder&amp;rft.au=Pavel%20Matula&amp;rft.au=Petr%20Matula&amp;rft.au=David%20Svoboda&amp;rft.au=Miroslav%20Radojevic&amp;rft.au=Ihor%20Smal&amp;rft.au=Karl%20Rohr&amp;rft.au=Joakim%20Jald%C3%A9n&amp;rft.au=Helen%20M.%20Blau&amp;rft.au=Oleh%20Dzyubachyk&amp;rft.au=Boudewijn%20Lelieveldt&amp;rft.au=Pengdong%20Xiao&amp;rft.au=Yuexiang%20Li&amp;rft.au=Siu-Yeung%20Cho&amp;rft.au=Alexandre%20C.%20Dufour&amp;rft.au=Jean-Christophe%20Olivo-Marin&amp;rft.au=Constantino%20C.%20Reyes-Aldasoro&amp;rft.au=Jose%20A.%20Solis-Lemus&amp;rft.au=Robert%20Bensch&amp;rft.au=Thomas%20Brox&amp;rft.au=Johannes%20Stegmaier&amp;rft.au=Ralf%20Mikut&amp;rft.au=Steffen%20Wolf&amp;rft.au=Fred%20A.%20Hamprecht&amp;rft.au=Tiago%20Esteves&amp;rft.au=Pedro%20Quelhas&amp;rft.au=%C3%96mer%20Demirel&amp;rft.au=Lars%20Malmstr%C3%B6m&amp;rft.au=Florian%20Jug&amp;rft.au=Pavel%20Tomancak&amp;rft.au=Erik%20Meijering&amp;rft.au=Arrate%20Mu%C3%B1oz-Barrutia&amp;rft.au=Michal%20Kozubek&amp;rft.au=Carlos%20Ortiz-de-Solorzano&amp;rft.date=2017-10-30&amp;rft.issn=1548-7091&amp;rft.language=en"></span>
+</div>
+<br>
+
+## For a general audience
+
+I collaborate as at IOP's [_medicalphysicsweb_](http://medicalphysicsweb.org),
+writing articles of scientific interest. These are aimed at a wider audience.
+The new site is being developed, in the meantime, you can find below a list of
+featured articles I have written. The latest articles written by me are listed 
+below.
+
++ **Tunable lens brings adjustable focus to fluorescence-guided surgeries.**
+  Check it out [here](http://medicalphysicsweb.org/cws/article/research/69724).
++ **From photo, to 3D model, through to wound healing**. Check it out
+  [here](http://medicalphysicsweb.org/cws/article/research/70241).
++ **Shining light on colorectal cancer.** Check it out 
+  [here](http://medicalphysicsweb.org/cws/article/research/70528).
+
+### Featuring my work
++ **Automatic image algorithm separated overlapping cells** Check it out
+[here](http://medicalphysicsweb.org/cws/article/research/69719).
+
+--- END FILE: publications.md ---
+
+--- START FILE: index.md ---
+---
+layout: default
+---
+ 
+<table>
+  <tr>
+    <th><a href="./images/mycv.pdf"><span style="color:#905"> CV </span></a></th>
+    <th><a href="https://github.com/alonsoJASL"><span style="color:#905"> github </span></a></th>
+    <th><a href="https://scholar.google.co.uk/citations?user=2_095cQAAAAJ&hl=en"><span style="color:#905"> google scholar </span></a></th>
+    <th><a href="https://www.researchgate.net/profile/Jose_Solis-Lemus"><span style="color:#905"> ResearchGate </span></a></th>
+    <th><a href="https://www.linkedin.com/in/alonsosolislemus"><span style="color:#905"> linkedin </span></a></th>
+  </tr>
+</table>
+
+# about
+I am a postdoc researcher at the Cardio Electro Mechanics Research Group 
+[CEMRG](www.cemrg.com), where I currently develop image processing and 
+computer vision algorithms for the analysis of cardiac images.
+
+# a brief background
+I graduated from Instituto Tecnologico Autonomo de México (ITAM) in Telematics Engineering 
+(2013) and Applied Mathematics (2014). My PhD was in Biomedical Image Analysis working at the 
+School of Mathematics, Computer Science and Engineering (SMCSE) at City, University of London, 
+in particular [(RCBE).](https://www.city.ac.uk/biomedical-engineering-research-centre). 
+My [PhD research](https://goo.gl/yVQBfX) focused on the automated analysis of moving patterns 
+in migrating cells’ movement. 
+
+# interesting projects I contribute to
++ [CemrgApp](https://github.com/CemrgAppDevelopers/CemrgApp): An Interactive Medical Imaging Platform with Image Processing and Computer Vision Toolkits for Cardiovascular Research
++ [SplitVent](https://github.com/splitvent/splitvent): A single-ventilator/dual patient computer model.
++ [macrosight](https://github.com/alonsoJASL/macrosight): A MATLAB package for the analysis of overlapping macrophages.
++ [anglegram](https://github.com/alonsoJASL/matlab.anglegram): Multiscale angle measurement of image boundaries
+
+
+# contact
+<img align="right" height="18%" rotate="180" width="18%" src="./images/Profilepic.jpeg">
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="span5">
+            Jos&eacute; Alonso Sol&iacute;s-Lemus<br/>
+            <a href="https://www.kcl.ac.uk/people/jose-alonso-solis-lemus"> </a><br/>
+            <a href="kcl.ac.uk">King's College London</a><br/>
+            4th floor, North Wing, <br/>
+            St Thomas' Hospital,<br/>
+            SE1 7EH<br/>
+            London, UK<br/><br/>
+        </div>
+    </div>
+</div>
+
+
+```
+ Email: jose [dot] solislemus {at} kcl [dot] ac.uk  jose [dot] solis-lemus {at} city [dot] ac.uk
+```
+
+--- END FILE: index.md ---
+
+--- START FILE: teaching.md ---
+---
+layout: page
+title: Teaching
+permalink: /teaching/
+---
+
+### Graduate Teaching Assistant
+
++ **Medical Imaging** (MEng) Terms: 2017/2018, 2016/2017 (Senior Lecturer: 
+[Constantino Carlos Reyes-Aldasoro](http://www.staff.city.ac.uk/~sbbk034/))
++ **Biosignal and Image Processing** (BEng) Terms: 2017/2018, 2016/2017
+(Senior Lecturer: Constantino Carlos Reyes-Aldasoro)
++ **Medical Imaging Modalities** (Beng) Terms: 2017/2018, 2016/2017
+(Senior Lecturer: Constantino Carlos Reyes-Aldasoro)
++ **Introduction to Biomedical Engineering** (Beng) Term: 2016/2017
+(Senior Lecturer: Constantino Carlos Reyes-Aldasoro)
+
+### Teaching experience
+
+#### Sessional Tutor: Kaplan International College, London 
++ **Applied Mathematics** Term: Summer, 2018.
++ **Foundation Mathematics** Term: Summer, 2018 & Spring 2018.
++ **Statistics** Term: Summer, 2018 & Spring, 2018
+
+#### Visiting Lecturer
+
++ **Introduction to Mathematics** Term: Summer 2014. 
+[Instituto Tecnológico Autónomo de México (ITAM)](https://www.itam.mx/en).
+
+#### Other teaching experience [(ITAM)](https://www.itam.mx/en)
+
++ **Faculty Assistant**
++ **Voluntary Highschool instructor**
+
+
+--- END FILE: teaching.md ---
+
+--- START FILE: _config.yml ---
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server
+# process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Jose Alonso Solis Lemus
+description: > # this means to ignore newlines until "baseurl:"
+  Find in this website access to my cv, research interests, publications,
+  Github code, and more!
+baseurl: "" # the subpath of your site, e.g. /blog
+url: # the base hostname & protocol for your site
+twitter_username: jsolislemus
+github_username:  alonsoJASL
+
+# Build settings: kramdown or GFM
+markdown: GFM 
+theme: minima
+gems:
+  - jekyll-feed
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+--- END FILE: _config.yml ---
+
+--- START FILE: _includes/image.html ---
+<figure>
+  <img src="{{ site.url }}/images/{{ include.file }}" alt="{{ include.alt }}" {% if include.width %}style="width:{{include.width}};"{% endif %}>
+  {% if include.cap %}<figcaption>{{ include.cap }}</figcaption>{% endif %}
+</figure>
+--- END FILE: _includes/image.html ---
+
+--- START FILE: _includes/google-analytics.html ---
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '{{ site.google_analytics }}', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+--- END FILE: _includes/google-analytics.html ---
+
+--- START FILE: _includes/head.html ---
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <meta name="keywords" content="">
+  <meta name="author" content="Jose Alonso Solis-Lemus personal webpage">
+
+  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.url }}">
+
+  {% include google-analytics.html %}
+</head>
+
+--- END FILE: _includes/head.html ---
+
+--- START FILE: _includes/header.html ---
+<header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="{{ "/" | prepend: site.url }}">{{ site.title | escape }}</a>
+
+    <nav class="site-nav">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+
+      <div class="trigger">
+        {% for my_page in site.pages %}
+          {% if my_page.title %}
+          <a class="page-link" href="{{ my_page.url | prepend: site.url }}">{{ my_page.title | escape }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+--- END FILE: _includes/header.html ---
+
+--- START FILE: css/main.scss ---
+---
+# front matter
+---
+
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$base-font-size:   16px !default;
+$base-font-weight: 400 !default;
+$small-font-size:  $base-font-size * 0.875 !default;
+$base-line-height: 1.5 !default;
+
+$spacing-unit:     30px !default;
+
+$text-color:       #111 !default;
+$background-color: #fdfdfd !default;
+$brand-color:      #2a7ae2 !default;
+
+$grey-color:       #828282 !default;
+$grey-color-light: lighten($grey-color, 40%) !default;
+$grey-color-dark:  darken($grey-color, 25%) !default;
+
+// Width of the content area
+$content-width:    800px !default;
+
+$on-palm:          600px !default;
+$on-laptop:        800px !default;
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//   .wrapper {
+//     padding-right: $spacing-unit / 2;
+//     padding-left: $spacing-unit / 2;
+//   }
+// }
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+// Import partials.
+@import
+  "base",
+  "layout"
+;
+
+--- END FILE: css/main.scss ---
+
+--- START FILE: _layouts/page.html ---
+---
+layout: default
+---
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+</article>
+
+--- END FILE: _layouts/page.html ---
+
+--- START FILE: _layouts/default.html ---
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include head.html %}
+
+  <body>
+    
+    {% include header.html %}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>
+
+--- END FILE: _layouts/default.html ---
+
+--- START FILE: _sass/_layout.scss ---
+/**
+ * Site header
+ */
+.site-header {
+  border-top: 5px solid $grey-color-dark;
+  border-bottom: 1px solid $grey-color-light;
+  min-height: 56px;
+
+  // Positioning context for the mobile navigation icon
+  position: relative;
+}
+
+.site-title {
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 56px;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+  float: left;
+
+  &,
+  &:visited {
+    color: $grey-color-dark;
+  }
+}
+
+.site-nav {
+  float: right;
+  line-height: 56px;
+
+  .menu-icon {
+    display: none;
+  }
+
+  .page-link {
+    color: $text-color;
+    line-height: $base-line-height;
+
+    // Gaps between nav items, but not on the last one
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  @include media-query($on-palm) {
+    position: absolute;
+    top: 9px;
+    right: $spacing-unit / 2;
+    background-color: $background-color;
+    border: 1px solid $grey-color-light;
+    border-radius: 5px;
+    text-align: right;
+
+    .menu-icon {
+      display: block;
+      float: right;
+      width: 36px;
+      height: 26px;
+      line-height: 0;
+      padding-top: 10px;
+      text-align: center;
+
+      > svg path {
+        fill: $grey-color-dark;
+      }
+    }
+
+    .trigger {
+      clear: both;
+      display: none;
+    }
+
+    &:hover .trigger {
+      display: block;
+      padding-bottom: 5px;
+    }
+
+    .page-link {
+      display: block;
+      padding: 5px 10px;
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+      margin-left: 20px;
+    }
+  }
+}
+
+
+
+/**
+ * Site footer
+ */
+.site-footer {
+  border-top: 1px solid $grey-color-light;
+  padding: $spacing-unit 0;
+}
+
+.footer-heading {
+  font-size: 18px;
+  margin-bottom: $spacing-unit / 2;
+  color: $grey-color;
+  a, a:visited { color: $grey-color;}
+}
+
+.footer-nav {
+  float: right;
+  a {
+    color: $grey-color-dark;
+    line-height: $base-line-height;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+}
+.footer-col-wrapper {
+  /*font-size: 15px;*/
+  color: $grey-color;
+  /*margin-left: -$spacing-unit / 2;*/
+  @extend %clearfix;
+}
+
+.footer-col {
+  float: left;
+  margin-bottom: $spacing-unit / 2;
+  padding-left: $spacing-unit / 2;
+}
+
+.footer-col-1 {
+  width: -webkit-calc(35% - (#{$spacing-unit} / 2));
+  width:         calc(35% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-2 {
+  width: -webkit-calc(20% - (#{$spacing-unit} / 2));
+  width:         calc(20% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-3 {
+  width: -webkit-calc(45% - (#{$spacing-unit} / 2));
+  width:         calc(45% - (#{$spacing-unit} / 2));
+}
+
+@include media-query($on-laptop) {
+  .footer-col-1,
+  .footer-col-2 {
+    width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+    width:         calc(50% - (#{$spacing-unit} / 2));
+  }
+
+  .footer-col-3 {
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width:         calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+
+@include media-query($on-palm) {
+  .footer-col {
+    float: none;
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width:         calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+
+
+
+/**
+ * Page content
+ */
+.page-content {
+  padding: $spacing-unit 0;
+}
+
+.page-heading {
+  font-size: 20px;
+}
+
+.post-list {
+  margin-left: 0;
+  list-style: none;
+
+  > li {
+    margin-bottom: $spacing-unit;
+  }
+}
+
+.post-meta {
+  font-size: $small-font-size;
+  color: $grey-color;
+}
+
+.post-link {
+  display: block;
+  font-size: 24px;
+}
+
+
+
+/**
+ * Posts
+ */
+.post-header {
+  margin-bottom: $spacing-unit;
+}
+
+.post-title {
+  font-size: 42px;
+  letter-spacing: -1px;
+  line-height: 1;
+
+  @include media-query($on-laptop) {
+    font-size: 36px;
+  }
+}
+
+.post-content {
+  margin-bottom: $spacing-unit;
+
+  h2 {
+    font-size: 32px;
+
+    @include media-query($on-laptop) {
+      font-size: 28px;
+    }
+  }
+
+  h3 {
+    font-size: 26px;
+
+    @include media-query($on-laptop) {
+      font-size: 22px;
+    }
+  }
+
+  h4 {
+    font-size: 20px;
+
+    @include media-query($on-laptop) {
+      font-size: 18px;
+    }
+  }
+}
+
+--- END FILE: _sass/_layout.scss ---
+
+--- START FILE: _sass/_syntax-highlighting.scss ---
+/**
+ * Syntax highlighting styles
+ */
+.highlight {
+  background: #fff;
+  @extend %vertical-rhythm;
+
+  .highlighter-rouge & {
+    background: #eef;
+  }
+
+  .c     { color: #998; font-style: italic } // Comment
+  .err   { color: #a61717; background-color: #e3d2d2 } // Error
+  .k     { font-weight: bold } // Keyword
+  .o     { font-weight: bold } // Operator
+  .cm    { color: #998; font-style: italic } // Comment.Multiline
+  .cp    { color: #999; font-weight: bold } // Comment.Preproc
+  .c1    { color: #998; font-style: italic } // Comment.Single
+  .cs    { color: #999; font-weight: bold; font-style: italic } // Comment.Special
+  .gd    { color: #000; background-color: #fdd } // Generic.Deleted
+  .gd .x { color: #000; background-color: #faa } // Generic.Deleted.Specific
+  .ge    { font-style: italic } // Generic.Emph
+  .gr    { color: #a00 } // Generic.Error
+  .gh    { color: #999 } // Generic.Heading
+  .gi    { color: #000; background-color: #dfd } // Generic.Inserted
+  .gi .x { color: #000; background-color: #afa } // Generic.Inserted.Specific
+  .go    { color: #888 } // Generic.Output
+  .gp    { color: #555 } // Generic.Prompt
+  .gs    { font-weight: bold } // Generic.Strong
+  .gu    { color: #aaa } // Generic.Subheading
+  .gt    { color: #a00 } // Generic.Traceback
+  .kc    { font-weight: bold } // Keyword.Constant
+  .kd    { font-weight: bold } // Keyword.Declaration
+  .kp    { font-weight: bold } // Keyword.Pseudo
+  .kr    { font-weight: bold } // Keyword.Reserved
+  .kt    { color: #458; font-weight: bold } // Keyword.Type
+  .m     { color: #099 } // Literal.Number
+  .s     { color: #d14 } // Literal.String
+  .na    { color: #008080 } // Name.Attribute
+  .nb    { color: #0086B3 } // Name.Builtin
+  .nc    { color: #458; font-weight: bold } // Name.Class
+  .no    { color: #008080 } // Name.Constant
+  .ni    { color: #800080 } // Name.Entity
+  .ne    { color: #900; font-weight: bold } // Name.Exception
+  .nf    { color: #900; font-weight: bold } // Name.Function
+  .nn    { color: #555 } // Name.Namespace
+  .nt    { color: #000080 } // Name.Tag
+  .nv    { color: #008080 } // Name.Variable
+  .ow    { font-weight: bold } // Operator.Word
+  .w     { color: #bbb } // Text.Whitespace
+  .mf    { color: #099 } // Literal.Number.Float
+  .mh    { color: #099 } // Literal.Number.Hex
+  .mi    { color: #099 } // Literal.Number.Integer
+  .mo    { color: #099 } // Literal.Number.Oct
+  .sb    { color: #d14 } // Literal.String.Backtick
+  .sc    { color: #d14 } // Literal.String.Char
+  .sd    { color: #d14 } // Literal.String.Doc
+  .s2    { color: #d14 } // Literal.String.Double
+  .se    { color: #d14 } // Literal.String.Escape
+  .sh    { color: #d14 } // Literal.String.Heredoc
+  .si    { color: #d14 } // Literal.String.Interpol
+  .sx    { color: #d14 } // Literal.String.Other
+  .sr    { color: #009926 } // Literal.String.Regex
+  .s1    { color: #d14 } // Literal.String.Single
+  .ss    { color: #990073 } // Literal.String.Symbol
+  .bp    { color: #999 } // Name.Builtin.Pseudo
+  .vc    { color: #008080 } // Name.Variable.Class
+  .vg    { color: #008080 } // Name.Variable.Global
+  .vi    { color: #008080 } // Name.Variable.Instance
+  .il    { color: #099 } // Literal.Number.Integer.Long
+}
+
+--- END FILE: _sass/_syntax-highlighting.scss ---
+
+--- START FILE: _sass/_base.scss ---
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/**
+ * Basic styling
+ */
+body {
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+     -moz-font-feature-settings: "kern" 1;
+       -o-font-feature-settings: "kern" 1;
+          font-feature-settings: "kern" 1;
+  font-kerning: normal;
+}
+
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin-bottom: $spacing-unit / 2;
+}
+
+
+
+/**
+ * Images
+ */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+
+
+/**
+ * Figures
+ */
+figure > img {
+  display: block;
+  margin: 0 auto;
+}
+
+figcaption {
+  font-size: $small-font-size;
+  color: $grey-color;
+  text-align: center;
+}
+
+
+
+/**
+ * Lists
+ */
+ul, ol {
+  margin-left: $spacing-unit;
+}
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $base-font-weight;
+}
+
+
+
+/**
+ * Links
+ */
+a {
+  color: $brand-color;
+  text-decoration: none;
+
+  &:visited {
+    color: darken($brand-color, 15%);
+  }
+
+  &:hover {
+    color: $text-color;
+    text-decoration: underline;
+  }
+}
+
+
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  color: $grey-color;
+  border-left: 4px solid $grey-color-light;
+  padding-left: $spacing-unit / 2;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-style: italic;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+  font-size: 15px;
+  border: 1px solid $grey-color-light;
+  border-radius: 3px;
+  background-color: #eef;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+
+
+/**
+ * Wrapper
+ */
+.wrapper {
+  max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
+  max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $spacing-unit;
+  padding-left: $spacing-unit;
+  @extend %clearfix;
+
+  @include media-query($on-laptop) {
+    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
+    max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+    padding-right: $spacing-unit / 2;
+    padding-left: $spacing-unit / 2;
+  }
+}
+
+
+
+/**
+ * Clearfix
+ */
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+/**
+ * Icons
+ */
+.icon > svg {
+  display: inline-block;
+  vertical-align: middle;
+
+  path {
+    fill: $grey-color;
+  }
+}
+
+--- END FILE: _sass/_base.scss ---
+
