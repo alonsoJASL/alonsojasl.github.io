@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>git worktree Cheatsheet</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0c0e12;
+            --bg-card: #13161c;
+            --bg-code: #0a0c10;
+            --border: #1e2330;
+            --border-active: #2a3a5c;
+            --text: #c5cdd8;
+            --text-dim: #6b7a90;
+            --text-bright: #e8ecf2;
+            --accent: #5b9cf5;
+            --accent-dim: #2a4a7a;
+            --green: #6bc97a;
+            --yellow: #d4a853;
+            --red: #d45858;
+            --orange: #cc7a3a;
+            --purple: #9b7ae8;
+            --cyan: #4ec9b0;
+            --mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --sans: 'DM Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 3rem 2rem 6rem;
+        }
+
+        /* ---- Header ---- */
+        header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        header h1 {
+            font-family: var(--mono);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-bright);
+            letter-spacing: -0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        header h1 span {
+            color: var(--accent);
+        }
+
+        header .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            max-width: 640px;
+            margin-top: 0.5rem;
+        }
+
+        /* ---- Table of Contents ---- */
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.35rem 2rem;
+        }
+
+        .toc-title {
+            grid-column: 1 / -1;
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            font-size: 0.88rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+
+        .toc a:hover {
+            color: var(--text-bright);
+        }
+
+        .toc a .num {
+            color: var(--text-dim);
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            margin-right: 0.4rem;
+        }
+
+        /* ---- Sections ---- */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        section h2 {
+            font-family: var(--mono);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-bright);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        section h2 .sec-num {
+            font-size: 0.8rem;
+            color: var(--accent-dim);
+            background: rgba(91, 156, 245, 0.08);
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-family: var(--mono);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--yellow);
+            margin: 1.5rem 0 0.6rem;
+        }
+
+        p {
+            margin-bottom: 0.75rem;
+            font-size: 0.92rem;
+        }
+
+        /* ---- Code blocks ---- */
+        pre {
+            background: var(--bg-code);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-dim);
+            border-radius: 4px;
+            padding: 1rem 1.25rem;
+            margin: 0.6rem 0 1rem;
+            overflow-x: auto;
+            font-family: var(--mono);
+            font-size: 0.82rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        pre .comment {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        pre .cmd {
+            color: var(--green);
+        }
+
+        pre .flag {
+            color: var(--cyan);
+        }
+
+        pre .path {
+            color: var(--yellow);
+        }
+
+        pre .output {
+            color: var(--text-dim);
+        }
+
+        pre .warn {
+            color: var(--red);
+        }
+
+        pre .arg {
+            color: var(--orange);
+        }
+
+        code {
+            font-family: var(--mono);
+            font-size: 0.84rem;
+            background: rgba(91, 156, 245, 0.08);
+            padding: 0.1rem 0.35rem;
+            border-radius: 3px;
+            color: var(--accent);
+        }
+
+        /* ---- Callout boxes ---- */
+        .callout {
+            border-radius: 5px;
+            padding: 0.9rem 1.1rem;
+            margin: 1rem 0;
+            font-size: 0.88rem;
+            border-left: 3px solid;
+        }
+
+        .callout.tip {
+            background: rgba(91, 156, 245, 0.06);
+            border-color: var(--accent);
+        }
+
+        .callout.warn {
+            background: rgba(212, 88, 88, 0.06);
+            border-color: var(--red);
+        }
+
+        .callout.note {
+            background: rgba(212, 168, 83, 0.06);
+            border-color: var(--yellow);
+        }
+
+        .callout.good {
+            background: rgba(107, 201, 122, 0.06);
+            border-color: var(--green);
+        }
+
+        .callout-label {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .callout.tip .callout-label {
+            color: var(--accent);
+        }
+
+        .callout.warn .callout-label {
+            color: var(--red);
+        }
+
+        .callout.note .callout-label {
+            color: var(--yellow);
+        }
+
+        .callout.good .callout-label {
+            color: var(--green);
+        }
+
+        /* ---- Directory trees ---- */
+        .tree {
+            font-family: var(--mono);
+            font-size: 0.82rem;
+            background: var(--bg-code);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1rem 1.25rem;
+            margin: 0.6rem 0 1rem;
+            line-height: 1.6;
+            color: var(--text-dim);
+        }
+
+        .tree .dir {
+            color: var(--accent);
+        }
+
+        .tree .file {
+            color: var(--text);
+        }
+
+        .tree .note {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        /* ---- Tables ---- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.8rem 0 1.2rem;
+            font-size: 0.85rem;
+        }
+
+        th {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-dim);
+            text-align: left;
+            padding: 0.6rem 0.8rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        td {
+            padding: 0.55rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        td code {
+            font-size: 0.8rem;
+        }
+
+        /* ---- Flow diagram ---- */
+        .flow {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+            font-family: var(--mono);
+            font-size: 0.78rem;
+        }
+
+        .flow-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            color: var(--text-bright);
+            white-space: nowrap;
+        }
+
+        .flow-arrow {
+            color: var(--text-dim);
+            padding: 0 0.3rem;
+            font-size: 1rem;
+        }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 600px) {
+            .page {
+                padding: 1.5rem 1rem 4rem;
+            }
+
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            .toc {
+                grid-template-columns: 1fr;
+            }
+
+            .flow {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.3rem;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+                padding: 0.1rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <header>
+            <h1><span>git worktree</span> cheatsheet</h1>
+            <p class="subtitle">
+                Work on multiple branches simultaneously without stashing or switching.
+                Each worktree is a full working directory backed by a single <code>.git</code> repo.
+                Particularly useful for CMake/C++ projects where each branch carries its own build directory.
+            </p>
+        </header>
+
+        <!-- ============================================================ -->
+        <!-- TOC -->
+        <!-- ============================================================ -->
+        <nav class="toc">
+            <div class="toc-title">Contents</div>
+            <a href="#s1"><span class="num">01</span> Mental Model</a>
+            <a href="#s2"><span class="num">02</span> Bare Clone Setup</a>
+            <a href="#s3"><span class="num">03</span> Core Commands</a>
+            <a href="#s4"><span class="num">04</span> CMake / C++ Workflow</a>
+            <a href="#s5"><span class="num">05</span> Python / General Workflow</a>
+            <a href="#s6"><span class="num">06</span> Directory Layouts</a>
+            <a href="#s7"><span class="num">07</span> Common Operations</a>
+            <a href="#s8"><span class="num">08</span> Gotchas &amp; Pitfalls</a>
+            <a href="#s9"><span class="num">09</span> Hooks &amp; Automation</a>
+            <a href="#s10"><span class="num">10</span> Quick Reference Table</a>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- 1. MENTAL MODEL -->
+        <!-- ============================================================ -->
+        <section id="s1">
+            <h2><span class="sec-num">01</span> Mental Model</h2>
+
+            <p>
+                A <strong>worktree</strong> is a linked working directory that shares the same
+                <code>.git</code> object store as your main repo. Each worktree checks out a
+                <em>different</em> branch. You can build, test, and edit in parallel &mdash;
+                no stashing, no context-switching overhead.
+            </p>
+
+            <div class="flow">
+                <span class="flow-step">single .git repo</span>
+                <span class="flow-arrow">&rarr;</span>
+                <span class="flow-step">worktree: main/</span>
+                <span class="flow-arrow">&rarr;</span>
+                <span class="flow-step">worktree: feature-x/</span>
+                <span class="flow-arrow">&rarr;</span>
+                <span class="flow-step">worktree: hotfix/</span>
+            </div>
+
+            <div class="callout tip">
+                <div class="callout-label">Key insight</div>
+                All worktrees share commits, refs, stash, and config.
+                Each worktree has its own <code>HEAD</code>, index (staging area), and working files.
+                A branch can only be checked out in <strong>one</strong> worktree at a time.
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 2. BARE CLONE SETUP -->
+        <!-- ============================================================ -->
+        <section id="s2">
+            <h2><span class="sec-num">02</span> Bare Clone Setup (Recommended)</h2>
+
+            <p>
+                The cleanest worktree workflow starts from a <strong>bare clone</strong>. A bare repo
+                has no working directory of its own &mdash; it only holds the <code>.git</code> internals.
+                Every branch you work on becomes an explicit worktree. This avoids the confusion of having
+                a "main" working directory that is structurally different from the others.
+            </p>
+
+            <pre><span class="comment"># Clone as bare &mdash; the directory IS the .git store</span>
+<span class="cmd">git clone</span> <span class="flag">--bare</span> <span class="arg">git@github.com:org/myproject.git</span> <span class="path">myproject</span>
+<span class="cmd">cd</span> <span class="path">myproject</span>
+
+<span class="comment"># Fix fetch refspec so 'git fetch' works properly</span>
+<span class="cmd">git config</span> remote.origin.fetch <span class="arg">"+refs/heads/*:refs/remotes/origin/*"</span>
+<span class="cmd">git fetch</span> origin
+
+<span class="comment"># Now add worktrees for the branches you need</span>
+<span class="cmd">git worktree add</span> <span class="path">main</span>
+<span class="cmd">git worktree add</span> <span class="path">develop</span>
+<span class="cmd">git worktree add</span> <span class="path">feature/cardiac-mesh</span></pre>
+
+            <div class="callout warn">
+                <div class="callout-label">Critical</div>
+                The <code>git config remote.origin.fetch</code> line is essential after a bare clone. Without
+                it, <code>git fetch</code> will not update remote tracking branches, and you will not be able
+                to create worktrees from remote branches. This is the single most common bare-clone pitfall.
+            </div>
+
+            <h3>Non-bare alternative (simpler, less clean)</h3>
+            <p>You can also add worktrees from a normal clone. The original checkout remains and sibling worktrees live
+                alongside it or elsewhere.</p>
+
+            <pre><span class="cmd">git clone</span> <span class="arg">git@github.com:org/myproject.git</span>
+<span class="cmd">cd</span> <span class="path">myproject</span>
+<span class="cmd">git worktree add</span> <span class="path">../myproject-feature</span> <span class="arg">feature/cardiac-mesh</span></pre>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 3. CORE COMMANDS -->
+        <!-- ============================================================ -->
+        <section id="s3">
+            <h2><span class="sec-num">03</span> Core Commands</h2>
+
+            <h3>Create a worktree</h3>
+            <pre><span class="comment"># Checkout an existing branch into a new directory</span>
+<span class="cmd">git worktree add</span> <span class="path">&lt;path&gt;</span> <span class="arg">&lt;branch&gt;</span>
+
+<span class="comment"># Create a new branch AND its worktree in one step</span>
+<span class="cmd">git worktree add</span> <span class="flag">-b</span> <span class="arg">&lt;new-branch&gt;</span> <span class="path">&lt;path&gt;</span>
+
+<span class="comment"># Create from a remote branch (auto-tracks)</span>
+<span class="cmd">git worktree add</span> <span class="path">&lt;path&gt;</span> <span class="arg">origin/feature-x</span>
+
+<span class="comment"># Detached HEAD worktree (useful for inspecting a tag/commit)</span>
+<span class="cmd">git worktree add</span> <span class="flag">--detach</span> <span class="path">&lt;path&gt;</span> <span class="arg">&lt;commit-ish&gt;</span></pre>
+
+            <h3>List worktrees</h3>
+            <pre><span class="cmd">git worktree list</span>
+<span class="output">/home/user/myproject         (bare)
+/home/user/myproject/main    abc1234 [main]
+/home/user/myproject/develop def5678 [develop]</span></pre>
+
+            <h3>Remove a worktree</h3>
+            <pre><span class="comment"># Clean removal (fails if there are uncommitted changes)</span>
+<span class="cmd">git worktree remove</span> <span class="path">&lt;path&gt;</span>
+
+<span class="comment"># Force removal (discards uncommitted changes)</span>
+<span class="cmd">git worktree remove</span> <span class="flag">--force</span> <span class="path">&lt;path&gt;</span>
+
+<span class="comment"># If you manually deleted the directory, clean up the bookkeeping</span>
+<span class="cmd">git worktree prune</span></pre>
+
+            <h3>Move a worktree</h3>
+            <pre><span class="cmd">git worktree move</span> <span class="path">&lt;old-path&gt;</span> <span class="path">&lt;new-path&gt;</span></pre>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 4. CMAKE / C++ WORKFLOW -->
+        <!-- ============================================================ -->
+        <section id="s4">
+            <h2><span class="sec-num">04</span> CMake / C++ Workflow</h2>
+
+            <p>
+                This is where worktrees genuinely shine. With a normal <code>git checkout</code>,
+                switching branches invalidates your entire build directory because the source tree changed
+                under CMake's feet. With worktrees, each branch has its own source <em>and</em> build directory,
+                so builds are always warm.
+            </p>
+
+            <h3>Recommended layout</h3>
+            <div class="tree">
+                <span class="dir">myproject/</span> <span class="note">&larr; bare repo</span>
+                <span class="dir">&boxvr;&HorizontalLine;&HorizontalLine; main/</span> <span class="note">&larr;
+                    worktree</span>
+                &boxv; <span class="dir">&boxvr;&HorizontalLine;&HorizontalLine; build/</span> <span class="note">&larr;
+                    in-tree build dir</span>
+                &boxv; <span class="file">&boxvr;&HorizontalLine;&HorizontalLine; CMakeLists.txt</span>
+                &boxv; &boxvr;&HorizontalLine;&HorizontalLine; src/
+                &boxv; &boxur;&HorizontalLine;&HorizontalLine; ...
+                <span class="dir">&boxvr;&HorizontalLine;&HorizontalLine; feature/cardiac-mesh/</span> <span
+                    class="note">&larr; worktree</span>
+                &boxv; <span class="dir">&boxvr;&HorizontalLine;&HorizontalLine; build/</span> <span class="note">&larr;
+                    its own build dir</span>
+                &boxv; <span class="file">&boxvr;&HorizontalLine;&HorizontalLine; CMakeLists.txt</span>
+                &boxv; &boxur;&HorizontalLine;&HorizontalLine; ...
+                <span class="dir">&boxur;&HorizontalLine;&HorizontalLine; hotfix/</span>
+                <span class="dir">&boxur;&HorizontalLine;&HorizontalLine; build/</span>
+            </div>
+
+            <h3>Setting up a C++ worktree from scratch</h3>
+            <pre><span class="cmd">cd</span> <span class="path">myproject</span>
+<span class="cmd">git worktree add</span> <span class="path">feature/cardiac-mesh</span>
+<span class="cmd">cd</span> <span class="path">feature/cardiac-mesh</span>
+
+<span class="comment"># Configure &amp; build in-tree build/ directory</span>
+<span class="cmd">cmake</span> <span class="flag">-B</span> <span class="path">build</span> <span class="flag">-S</span> <span class="path">.</span> <span class="flag">-DCMAKE_BUILD_TYPE=Release</span>
+<span class="cmd">cmake</span> <span class="flag">--build</span> <span class="path">build</span> <span class="flag">-j$(nproc)</span></pre>
+
+            <div class="callout good">
+                <div class="callout-label">Why this works</div>
+                Each worktree directory is a completely independent source tree. CMake's build directory
+                sits inside it and never gets confused by branch switches. You can have <code>main</code>
+                compiling with GCC while <code>feature/cardiac-mesh</code> is building with Clang &mdash;
+                simultaneously, in parallel terminals.
+            </div>
+
+            <h3>Out-of-tree builds (alternative)</h3>
+            <p>If you prefer keeping build artefacts separate from source:</p>
+            <div class="tree">
+                <span class="dir">myproject/</span> <span class="note">&larr; bare repo + worktrees</span>
+                <span class="dir">&boxvr;&HorizontalLine;&HorizontalLine; main/</span>
+                <span class="dir">&boxur;&HorizontalLine;&HorizontalLine; feature/cardiac-mesh/</span>
+
+                <span class="dir">myproject-builds/</span> <span class="note">&larr; sibling build root</span>
+                <span class="dir">&boxvr;&HorizontalLine;&HorizontalLine; main/</span>
+                <span class="dir">&boxur;&HorizontalLine;&HorizontalLine; feature-cardiac-mesh/</span>
+            </div>
+
+            <pre><span class="cmd">cmake</span> <span class="flag">-B</span> <span class="path">../myproject-builds/feature-cardiac-mesh</span> <span class="flag">-S</span> <span class="path">.</span></pre>
+
+            <div class="callout note">
+                <div class="callout-label">.gitignore</div>
+                If using in-tree <code>build/</code> directories, make sure <code>build/</code> is in your
+                <code>.gitignore</code>. With a bare clone setup, the <code>.gitignore</code> lives inside
+                each worktree (it is part of the tracked source), so this should already be covered if your
+                project is set up correctly.
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 5. PYTHON / GENERAL WORKFLOW -->
+        <!-- ============================================================ -->
+        <section id="s5">
+            <h2><span class="sec-num">05</span> Python / General Workflow</h2>
+
+            <p>
+                For Python, worktrees are less about build directories and more about keeping
+                separate virtual environments per branch, or running tests on one branch while
+                editing another.
+            </p>
+
+            <h3>Per-worktree virtual environments</h3>
+            <pre><span class="cmd">cd</span> <span class="path">myproject/feature-refactor</span>
+<span class="cmd">python</span> <span class="flag">-m venv</span> <span class="path">.venv</span>
+<span class="cmd">source</span> <span class="path">.venv/bin/activate</span>
+<span class="cmd">pip install</span> <span class="flag">-e</span> <span class="path">.</span>    <span class="comment"># editable install for this branch</span></pre>
+
+            <div class="callout tip">
+                <div class="callout-label">Tip</div>
+                Add <code>.venv/</code> to your <code>.gitignore</code>. Each worktree gets its own
+                <code>.venv</code> with its own dependencies, so you can test incompatible package
+                versions across branches.
+            </div>
+
+            <h3>Typical use cases beyond C++</h3>
+            <p>
+                Running a long test suite on <code>main</code> while developing on a feature branch.
+                Reviewing a colleague's PR in an isolated directory without disrupting your work.
+                Comparing behaviour across two branches side-by-side in separate terminals.
+            </p>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 6. DIRECTORY LAYOUTS -->
+        <!-- ============================================================ -->
+        <section id="s6">
+            <h2><span class="sec-num">06</span> Directory Layouts Compared</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Layout</th>
+                        <th>Structure</th>
+                        <th>Best for</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Bare + nested</strong></td>
+                        <td><code>repo/{main,feat,fix}/</code></td>
+                        <td>CMake/C++ projects. Everything under one roof. Clean and discoverable.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bare + flat</strong></td>
+                        <td><code>repo-main/, repo-feat/</code></td>
+                        <td>When branch names contain slashes and you want flat sibling dirs.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Normal + siblings</strong></td>
+                        <td><code>repo/, repo-feat/</code></td>
+                        <td>Quick one-off worktrees from an existing clone. Low ceremony.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout note">
+                <div class="callout-label">Naming convention</div>
+                When branch names contain slashes (e.g. <code>feature/cardiac-mesh</code>), git will
+                create nested directories for the worktree path if you pass the branch name directly.
+                This is usually what you want with the "bare + nested" layout. If not, provide an
+                explicit flat path: <code>git worktree add cardiac-mesh feature/cardiac-mesh</code>.
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 7. COMMON OPERATIONS -->
+        <!-- ============================================================ -->
+        <section id="s7">
+            <h2><span class="sec-num">07</span> Common Operations</h2>
+
+            <h3>Fetching &amp; pulling across worktrees</h3>
+            <pre><span class="comment"># Fetch is repo-wide &mdash; run it from anywhere</span>
+<span class="cmd">git fetch</span> <span class="flag">--all</span>
+
+<span class="comment"># But pull is per-worktree (it merges into the current HEAD)</span>
+<span class="cmd">cd</span> <span class="path">main</span> && <span class="cmd">git pull</span>
+<span class="cmd">cd</span> <span class="path">../develop</span> && <span class="cmd">git pull</span></pre>
+
+            <h3>Cherry-picking between worktrees</h3>
+            <pre><span class="comment"># From the target worktree, cherry-pick by commit hash</span>
+<span class="cmd">cd</span> <span class="path">hotfix</span>
+<span class="cmd">git cherry-pick</span> <span class="arg">abc1234</span>
+
+<span class="comment"># Or reference a branch (commits are shared across all worktrees)</span>
+<span class="cmd">git cherry-pick</span> <span class="arg">feature/cardiac-mesh~2</span></pre>
+
+            <h3>Rebasing a feature branch</h3>
+            <pre><span class="comment"># Step into the feature worktree</span>
+<span class="cmd">cd</span> <span class="path">feature/cardiac-mesh</span>
+<span class="cmd">git rebase</span> <span class="arg">main</span>
+
+<span class="comment"># main's worktree doesn't need to be "current" for this &mdash;</span>
+<span class="comment"># the ref is shared from the repo's object store</span></pre>
+
+            <h3>Checking what is where</h3>
+            <pre><span class="comment"># Which branch is checked out in each worktree?</span>
+<span class="cmd">git worktree list</span>
+
+<span class="comment"># Detailed info (shows locked/prunable status)</span>
+<span class="cmd">git worktree list</span> <span class="flag">--verbose</span></pre>
+
+            <h3>Locking a worktree (prevent pruning)</h3>
+            <pre><span class="comment"># Useful if a worktree is on an external drive or NFS mount</span>
+<span class="cmd">git worktree lock</span> <span class="path">&lt;path&gt;</span>
+<span class="cmd">git worktree unlock</span> <span class="path">&lt;path&gt;</span></pre>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 8. GOTCHAS & PITFALLS -->
+        <!-- ============================================================ -->
+        <section id="s8">
+            <h2><span class="sec-num">08</span> Gotchas &amp; Pitfalls</h2>
+
+            <div class="callout warn">
+                <div class="callout-label">One branch, one worktree</div>
+                You cannot check out the same branch in two worktrees. If you try,
+                git will refuse:
+                <code>fatal: 'main' is already checked out at '/path/to/main'</code>.
+                Use <code>--detach</code> if you need a second copy at the same commit without the branch ref.
+            </div>
+
+            <div class="callout warn">
+                <div class="callout-label">Submodules</div>
+                <code>git worktree</code> and submodules interact poorly. Submodules are not
+                automatically initialised in new worktrees. You must run
+                <code>git submodule update --init --recursive</code> inside each new worktree manually.
+            </div>
+
+            <div class="callout warn">
+                <div class="callout-label">Bare clone + push</div>
+                In a bare repo, <code>git push</code> works normally from any worktree. But
+                <code>HEAD</code> of the bare repo itself is just a symbolic ref (usually pointing to
+                <code>main</code>). This does not affect worktrees but can confuse some tools that
+                inspect the bare repo directly.
+            </div>
+
+            <div class="callout note">
+                <div class="callout-label">.git is a file, not a directory</div>
+                In a linked worktree, <code>.git</code> is a small text file containing
+                <code>gitdir: /path/to/bare/repo/worktrees/&lt;name&gt;</code>. Do not delete or
+                modify it. Tools that check for a <code>.git/</code> directory may need adjustment.
+            </div>
+
+            <div class="callout note">
+                <div class="callout-label">Stash is shared</div>
+                <code>git stash</code> is global to the repo. If you stash in one worktree and
+                pop in another, it works &mdash; but be aware that the stashed changes may not
+                apply cleanly to a different branch.
+            </div>
+
+            <div class="callout note">
+                <div class="callout-label">IDE configuration</div>
+                Open each worktree as a separate project/workspace in your IDE. Do not open the bare
+                repo root as a project &mdash; most IDEs will not know what to do with it. VSCode,
+                CLion, and PyCharm all handle worktree directories correctly if opened individually.
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 9. HOOKS & AUTOMATION -->
+        <!-- ============================================================ -->
+        <section id="s9">
+            <h2><span class="sec-num">09</span> Hooks &amp; Automation</h2>
+
+            <h3>Auto-setup script for CMake worktrees</h3>
+            <pre><span class="comment">#!/usr/bin/env bash</span>
+<span class="comment"># wt-add.sh &mdash; create a worktree and configure its build</span>
+<span class="comment"># Usage: ./wt-add.sh &lt;branch&gt; [cmake-args...]</span>
+
+<span class="arg">BRANCH</span>="${1:?Usage: wt-add.sh <branch> [cmake-args...]}"
+shift
+<span class="arg">WT_PATH</span>="${BRANCH//\//-}"   <span class="comment"># feature/foo &rarr; feature-foo</span>
+
+<span class="cmd">git worktree add</span> <span class="path">"$WT_PATH"</span> <span class="arg">"$BRANCH"</span> || exit 1
+<span class="cmd">cd</span> <span class="path">"$WT_PATH"</span>
+
+<span class="comment"># Auto-configure CMake build</span>
+<span class="cmd">cmake</span> <span class="flag">-B</span> <span class="path">build</span> <span class="flag">-S</span> <span class="path">.</span> "$@"
+<span class="output">echo "Worktree ready: $WT_PATH (branch: $BRANCH)"</span></pre>
+
+            <h3>post-checkout hook (per-worktree)</h3>
+            <p>
+                Git hooks live in the shared <code>.git/hooks/</code> (or bare repo <code>hooks/</code>)
+                and fire for all worktrees. You can use the <code>$GIT_DIR</code> environment variable
+                inside hooks to determine <em>which</em> worktree triggered them.
+            </p>
+            <pre><span class="comment">#!/usr/bin/env bash</span>
+<span class="comment"># .git/hooks/post-checkout</span>
+<span class="comment"># Re-run cmake configure after branch switch</span>
+
+<span class="arg">OLD_HEAD</span>="$1"
+<span class="arg">NEW_HEAD</span>="$2"
+<span class="arg">BRANCH_CHECKOUT</span>="$3"  <span class="comment"># 1 if branch checkout, 0 if file checkout</span>
+
+if [ "<span class="arg">$BRANCH_CHECKOUT</span>" = "1" ] && [ -f "CMakeLists.txt" ]; then
+    <span class="output">echo "Branch changed &mdash; reconfiguring CMake..."</span>
+    <span class="cmd">cmake</span> <span class="flag">-B</span> <span class="path">build</span> <span class="flag">-S</span> <span class="path">.</span>
+fi</pre>
+
+            <h3>Shell alias for quick worktree navigation</h3>
+            <pre><span class="comment"># Add to .bashrc / .zshrc</span>
+<span class="cmd">alias</span> <span class="arg">wtl</span>='git worktree list'
+<span class="cmd">alias</span> <span class="arg">wta</span>='git worktree add'
+<span class="cmd">alias</span> <span class="arg">wtr</span>='git worktree remove'
+
+<span class="comment"># fzf-powered worktree switcher</span>
+<span class="arg">wt</span>() {
+    local <span class="arg">target</span>
+    <span class="arg">target</span>=$(<span class="cmd">git worktree list</span> | <span class="cmd">fzf</span> <span class="flag">--height=40%</span> | <span class="cmd">awk</span> '{print $1}')
+    [ -n "<span class="arg">$target</span>" ] && <span class="cmd">cd</span> "<span class="arg">$target</span>"
+}</pre>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 10. QUICK REFERENCE -->
+        <!-- ============================================================ -->
+        <section id="s10">
+            <h2><span class="sec-num">10</span> Quick Reference Table</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Command</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Add worktree (existing branch)</td>
+                        <td><code>git worktree add &lt;path&gt; &lt;branch&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Add worktree (new branch)</td>
+                        <td><code>git worktree add -b &lt;branch&gt; &lt;path&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Add detached worktree</td>
+                        <td><code>git worktree add --detach &lt;path&gt; &lt;ref&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td>List all worktrees</td>
+                        <td><code>git worktree list [--verbose]</code></td>
+                    </tr>
+                    <tr>
+                        <td>Remove worktree</td>
+                        <td><code>git worktree remove &lt;path&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Force remove (dirty)</td>
+                        <td><code>git worktree remove --force &lt;path&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Move worktree</td>
+                        <td><code>git worktree move &lt;old&gt; &lt;new&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Clean up stale entries</td>
+                        <td><code>git worktree prune</code></td>
+                    </tr>
+                    <tr>
+                        <td>Lock (prevent prune)</td>
+                        <td><code>git worktree lock &lt;path&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Unlock</td>
+                        <td><code>git worktree unlock &lt;path&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Fix bare clone fetch</td>
+                        <td><code>git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+</body>
+
+</html>
