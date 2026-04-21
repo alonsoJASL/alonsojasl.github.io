@@ -24,6 +24,14 @@ I hold a PhD in Biomedical Engineering from City, University of London, and dual
 + [cardioscar](https://github.com/alonsoJASL/cardioscar): Production refactor of a published TensorFlow training pipeline to PyTorch, achieving a 36x training speedup while maintaining statistical equivalence with the original model.
 + [CemrgApp](https://github.com/CemrgAppDevelopers/CemrgApp): C++ clinical imaging platform for cardiovascular research, used across 40+ international studies.
 
+# tools
++ [IQKit](https://alonsojasl.github.io/IQKit): Shared, open-source Monkey C UI component library for Garmin Connect IQ devices.
++ [myagents](https://alonsojasl.github.io/myagents): Claude-based agents.
+
+# resources
++ [Git worktrees cheatsheet](./resources/git_worktrees_cheatsheet.html): Quick reference for git worktree commands.
++ [Marathon spectator briefing](./resources/marathon_spectator_briefing.html): Guide for spectating a marathon.
+
 # contact
 <img align="right" height="18%" width="18%" src="./images/Profilepic.jpeg">
 
