@@ -277,6 +277,8 @@
             margin: 0.6rem 0 1rem;
             line-height: 1.6;
             color: var(--text-dim);
+            white-space: pre;
+            overflow-x: auto;
         }
 
         .tree .dir {
@@ -464,13 +466,20 @@
 <span class="comment"># Now add worktrees for the branches you need</span>
 <span class="cmd">git worktree add</span> <span class="path">main</span>
 <span class="cmd">git worktree add</span> <span class="path">develop</span>
-<span class="cmd">git worktree add</span> <span class="path">feature/cardiac-mesh</span></pre>
+<span class="cmd">git worktree add</span> <span class="path">feature/cardiac-mesh</span>
+
+<span class="comment"># Bare clones configure no upstreams &mdash; wire each branch once so 'git pull' works</span>
+<span class="cmd">git branch</span> <span class="flag">--set-upstream-to=</span><span class="arg">origin/main</span> <span class="arg">main</span>
+<span class="cmd">git branch</span> <span class="flag">--set-upstream-to=</span><span class="arg">origin/develop</span> <span class="arg">develop</span></pre>
 
             <div class="callout warn">
                 <div class="callout-label">Critical</div>
                 The <code>git config remote.origin.fetch</code> line is essential after a bare clone. Without
                 it, <code>git fetch</code> will not update remote tracking branches, and you will not be able
                 to create worktrees from remote branches. This is the single most common bare-clone pitfall.
+                The second most common: bare clones set no upstream for any branch, so <code>git pull</code>
+                inside a worktree fails with <em>"There is no tracking information"</em> until you run the
+                <code>--set-upstream-to</code> lines above.
             </div>
 
             <h3>Non-bare alternative (simpler, less clean)</h3>
@@ -495,11 +504,23 @@
 <span class="comment"># Create a new branch AND its worktree in one step</span>
 <span class="cmd">git worktree add</span> <span class="flag">-b</span> <span class="arg">&lt;new-branch&gt;</span> <span class="path">&lt;path&gt;</span>
 
-<span class="comment"># Create from a remote branch (auto-tracks)</span>
-<span class="cmd">git worktree add</span> <span class="path">&lt;path&gt;</span> <span class="arg">origin/feature-x</span>
+<span class="comment"># Create from a remote branch: local branch + tracking in one step</span>
+<span class="cmd">git worktree add</span> <span class="flag">--track -b</span> <span class="arg">feature-x</span> <span class="path">&lt;path&gt;</span> <span class="arg">origin/feature-x</span>
+
+<span class="comment"># Shorthand when &lt;path&gt; basename matches the remote branch name</span>
+<span class="cmd">git worktree add</span> <span class="flag">--guess-remote</span> <span class="path">feature-x</span>
 
 <span class="comment"># Detached HEAD worktree (useful for inspecting a tag/commit)</span>
 <span class="cmd">git worktree add</span> <span class="flag">--detach</span> <span class="path">&lt;path&gt;</span> <span class="arg">&lt;commit-ish&gt;</span></pre>
+
+            <div class="callout warn">
+                <div class="callout-label">Detached HEAD trap</div>
+                <code>git worktree add &lt;path&gt; origin/feature-x</code> does <strong>not</strong>
+                create a tracking branch &mdash; it checks out a <em>detached HEAD</em> at that commit,
+                and a later <code>git pull</code> fails with
+                <code>You are not currently on a branch</code>. Use <code>--track -b</code>
+                (or <code>--guess-remote</code>) as shown above.
+            </div>
 
             <h3>List worktrees</h3>
             <pre><span class="cmd">git worktree list</span>
@@ -535,24 +556,18 @@
             </p>
 
             <h3>Recommended layout</h3>
-            <div class="tree">
-                <span class="dir">myproject/</span> <span class="note">&larr; bare repo</span>
-                <span class="dir">&boxvr;&HorizontalLine;&HorizontalLine; main/</span> <span class="note">&larr;
-                    worktree</span>
-                &boxv; <span class="dir">&boxvr;&HorizontalLine;&HorizontalLine; build/</span> <span class="note">&larr;
-                    in-tree build dir</span>
-                &boxv; <span class="file">&boxvr;&HorizontalLine;&HorizontalLine; CMakeLists.txt</span>
-                &boxv; &boxvr;&HorizontalLine;&HorizontalLine; src/
-                &boxv; &boxur;&HorizontalLine;&HorizontalLine; ...
-                <span class="dir">&boxvr;&HorizontalLine;&HorizontalLine; feature/cardiac-mesh/</span> <span
-                    class="note">&larr; worktree</span>
-                &boxv; <span class="dir">&boxvr;&HorizontalLine;&HorizontalLine; build/</span> <span class="note">&larr;
-                    its own build dir</span>
-                &boxv; <span class="file">&boxvr;&HorizontalLine;&HorizontalLine; CMakeLists.txt</span>
-                &boxv; &boxur;&HorizontalLine;&HorizontalLine; ...
-                <span class="dir">&boxur;&HorizontalLine;&HorizontalLine; hotfix/</span>
-                <span class="dir">&boxur;&HorizontalLine;&HorizontalLine; build/</span>
-            </div>
+            <div class="tree"><span class="dir">myproject/</span>                        <span class="note">&larr; bare repo</span>
+&boxvr;&HorizontalLine;&HorizontalLine; <span class="dir">main/</span>                         <span class="note">&larr; worktree</span>
+&boxv;   &boxvr;&HorizontalLine;&HorizontalLine; <span class="dir">build/</span>                    <span class="note">&larr; in-tree build dir</span>
+&boxv;   &boxvr;&HorizontalLine;&HorizontalLine; <span class="file">CMakeLists.txt</span>
+&boxv;   &boxvr;&HorizontalLine;&HorizontalLine; src/
+&boxv;   &boxur;&HorizontalLine;&HorizontalLine; ...
+&boxvr;&HorizontalLine;&HorizontalLine; <span class="dir">feature/cardiac-mesh/</span>         <span class="note">&larr; worktree</span>
+&boxv;   &boxvr;&HorizontalLine;&HorizontalLine; <span class="dir">build/</span>                    <span class="note">&larr; its own build dir</span>
+&boxv;   &boxvr;&HorizontalLine;&HorizontalLine; <span class="file">CMakeLists.txt</span>
+&boxv;   &boxur;&HorizontalLine;&HorizontalLine; ...
+&boxur;&HorizontalLine;&HorizontalLine; <span class="dir">hotfix/</span>
+    &boxur;&HorizontalLine;&HorizontalLine; <span class="dir">build/</span></div>
 
             <h3>Setting up a C++ worktree from scratch</h3>
             <pre><span class="cmd">cd</span> <span class="path">myproject</span>
@@ -573,15 +588,13 @@
 
             <h3>Out-of-tree builds (alternative)</h3>
             <p>If you prefer keeping build artefacts separate from source:</p>
-            <div class="tree">
-                <span class="dir">myproject/</span> <span class="note">&larr; bare repo + worktrees</span>
-                <span class="dir">&boxvr;&HorizontalLine;&HorizontalLine; main/</span>
-                <span class="dir">&boxur;&HorizontalLine;&HorizontalLine; feature/cardiac-mesh/</span>
+            <div class="tree"><span class="dir">myproject/</span>                <span class="note">&larr; bare repo + worktrees</span>
+&boxvr;&HorizontalLine;&HorizontalLine; <span class="dir">main/</span>
+&boxur;&HorizontalLine;&HorizontalLine; <span class="dir">feature/cardiac-mesh/</span>
 
-                <span class="dir">myproject-builds/</span> <span class="note">&larr; sibling build root</span>
-                <span class="dir">&boxvr;&HorizontalLine;&HorizontalLine; main/</span>
-                <span class="dir">&boxur;&HorizontalLine;&HorizontalLine; feature-cardiac-mesh/</span>
-            </div>
+<span class="dir">myproject-builds/</span>         <span class="note">&larr; sibling build root</span>
+&boxvr;&HorizontalLine;&HorizontalLine; <span class="dir">main/</span>
+&boxur;&HorizontalLine;&HorizontalLine; <span class="dir">feature-cardiac-mesh/</span></div>
 
             <pre><span class="cmd">cmake</span> <span class="flag">-B</span> <span class="path">../myproject-builds/feature-cardiac-mesh</span> <span class="flag">-S</span> <span class="path">.</span></pre>
 
@@ -679,7 +692,8 @@
             <pre><span class="comment"># Fetch is repo-wide &mdash; run it from anywhere</span>
 <span class="cmd">git fetch</span> <span class="flag">--all</span>
 
-<span class="comment"># But pull is per-worktree (it merges into the current HEAD)</span>
+<span class="comment"># But pull is per-worktree (it merges into the current HEAD).</span>
+<span class="comment"># Needs an upstream (see 02) and a non-detached HEAD (see 08)</span>
 <span class="cmd">cd</span> <span class="path">main</span> && <span class="cmd">git pull</span>
 <span class="cmd">cd</span> <span class="path">../develop</span> && <span class="cmd">git pull</span></pre>
 
@@ -724,6 +738,16 @@
                 git will refuse:
                 <code>fatal: 'main' is already checked out at '/path/to/main'</code>.
                 Use <code>--detach</code> if you need a second copy at the same commit without the branch ref.
+            </div>
+
+            <div class="callout warn">
+                <div class="callout-label">Detached HEAD rescue</div>
+                If <code>git status</code> says <em>"HEAD detached at origin/..."</em>, the worktree was
+                likely created directly from a remote-tracking ref or tag (see section 03). Spot these
+                with <code>git worktree list</code> &mdash; they show <code>(detached HEAD)</code> instead
+                of a branch name. To reattach:
+                <code>git switch --track origin/&lt;branch&gt;</code> to get onto the remote branch, or
+                <code>git switch -c &lt;new-branch&gt;</code> to keep any commits you made while detached.
             </div>
 
             <div class="callout warn">
@@ -774,7 +798,7 @@
 <span class="comment"># wt-add.sh &mdash; create a worktree and configure its build</span>
 <span class="comment"># Usage: ./wt-add.sh &lt;branch&gt; [cmake-args...]</span>
 
-<span class="arg">BRANCH</span>="${1:?Usage: wt-add.sh <branch> [cmake-args...]}"
+<span class="arg">BRANCH</span>="${1:?Usage: wt-add.sh &lt;branch&gt; [cmake-args...]}"
 shift
 <span class="arg">WT_PATH</span>="${BRANCH//\//-}"   <span class="comment"># feature/foo &rarr; feature-foo</span>
 
@@ -841,6 +865,10 @@ fi</pre>
                         <td><code>git worktree add -b &lt;branch&gt; &lt;path&gt;</code></td>
                     </tr>
                     <tr>
+                        <td>Add worktree tracking a remote branch</td>
+                        <td><code>git worktree add --track -b &lt;branch&gt; &lt;path&gt; origin/&lt;branch&gt;</code></td>
+                    </tr>
+                    <tr>
                         <td>Add detached worktree</td>
                         <td><code>git worktree add --detach &lt;path&gt; &lt;ref&gt;</code></td>
                     </tr>
@@ -875,6 +903,10 @@ fi</pre>
                     <tr>
                         <td>Fix bare clone fetch</td>
                         <td><code>git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"</code></td>
+                    </tr>
+                    <tr>
+                        <td>Set upstream so <code>pull</code> works</td>
+                        <td><code>git branch --set-upstream-to=origin/&lt;branch&gt; &lt;branch&gt;</code></td>
                     </tr>
                 </tbody>
             </table>
