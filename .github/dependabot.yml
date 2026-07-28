@@ -1,0 +1,17 @@
+# Update PRs, not just security alerts. Each one arrives with a CI result from
+# the jekyll workflow, so a red check is the signal not to merge.
+#
+# github-actions matters as much as bundler here: pinned action versions go
+# stale silently and are eventually deprecated by GitHub.
+
+version: 2
+updates:
+  - package-ecosystem: bundler
+    directory: "/"
+    schedule:
+      interval: monthly
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly

@@ -6,9 +6,8 @@ source "https://rubygems.org"
 #
 gem "jekyll", "~> 4.4"
 
-# Theme. 2.5 is the first minima line that supports Jekyll 4; _layouts,
-# _includes, _sass and css/main.scss in this repo override it selectively.
-gem "minima", "~> 2.5"
+# No theme gem: _layouts, _includes and _sass in this repo cover the whole
+# site, so there is nothing left for one to supply.
 
 # kramdown 2.x moved the GitHub-flavoured parser into a separate gem.
 # Required by the `kramdown: input: GFM` setting in _config.yml.

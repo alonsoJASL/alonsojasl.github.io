@@ -28,7 +28,6 @@ github_username:  alonsoJASL
 markdown: kramdown
 kramdown:
   input: GFM
-theme: minima
 plugins:
   - jekyll-feed
 exclude:
