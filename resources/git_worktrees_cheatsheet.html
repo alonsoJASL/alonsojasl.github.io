@@ -241,6 +241,15 @@
             border-color: var(--green);
         }
 
+        .callout p {
+            font-size: inherit;
+            margin-bottom: 0.6rem;
+        }
+
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
         .callout-label {
             font-family: var(--mono);
             font-size: 0.72rem;
@@ -439,6 +448,8 @@
                 All worktrees share commits, refs, stash, and config.
                 Each worktree has its own <code>HEAD</code>, index (staging area), and working files.
                 A branch can only be checked out in <strong>one</strong> worktree at a time.
+                (Config is shared unless you opt in to <code>extensions.worktreeConfig</code>, which lets
+                each worktree carry a private <code>config.worktree</code> file.)
             </div>
         </section>
 
@@ -463,23 +474,37 @@
 <span class="cmd">git config</span> remote.origin.fetch <span class="arg">"+refs/heads/*:refs/remotes/origin/*"</span>
 <span class="cmd">git fetch</span> origin
 
-<span class="comment"># Now add worktrees for the branches you need</span>
-<span class="cmd">git worktree add</span> <span class="path">main</span>
-<span class="cmd">git worktree add</span> <span class="path">develop</span>
-<span class="cmd">git worktree add</span> <span class="path">feature/cardiac-mesh</span>
+<span class="comment"># Add worktrees &mdash; ALWAYS name the branch as a second argument</span>
+<span class="cmd">git worktree add</span> <span class="path">main</span> <span class="arg">main</span>
+<span class="cmd">git worktree add</span> <span class="path">develop</span> <span class="arg">develop</span>
+<span class="cmd">git worktree add</span> <span class="path">cardiac-mesh</span> <span class="arg">feature/cardiac-mesh</span>
 
 <span class="comment"># Bare clones configure no upstreams &mdash; wire each branch once so 'git pull' works</span>
 <span class="cmd">git branch</span> <span class="flag">--set-upstream-to=</span><span class="arg">origin/main</span> <span class="arg">main</span>
-<span class="cmd">git branch</span> <span class="flag">--set-upstream-to=</span><span class="arg">origin/develop</span> <span class="arg">develop</span></pre>
+<span class="cmd">git branch</span> <span class="flag">--set-upstream-to=</span><span class="arg">origin/develop</span> <span class="arg">develop</span>
+
+<span class="comment"># refs/heads/* are frozen at clone time &mdash; bring each worktree up to date once</span>
+<span class="cmd">cd</span> <span class="path">main</span> && <span class="cmd">git pull</span> && <span class="cmd">cd</span> <span class="path">..</span></pre>
 
             <div class="callout warn">
-                <div class="callout-label">Critical</div>
-                The <code>git config remote.origin.fetch</code> line is essential after a bare clone. Without
-                it, <code>git fetch</code> will not update remote tracking branches, and you will not be able
-                to create worktrees from remote branches. This is the single most common bare-clone pitfall.
-                The second most common: bare clones set no upstream for any branch, so <code>git pull</code>
-                inside a worktree fails with <em>"There is no tracking information"</em> until you run the
-                <code>--set-upstream-to</code> lines above.
+                <div class="callout-label">Critical &mdash; the three bare-clone traps</div>
+                <p><strong>1. No fetch refspec.</strong> <code>git clone --bare</code> writes no
+                    <code>remote.origin.fetch</code>, so <code>git fetch</code> updates nothing but
+                    <code>FETCH_HEAD</code> and you never get <code>origin/*</code> refs. The
+                    <code>git config</code> line above is not optional.
+                </p>
+                <p><strong>2. No upstreams.</strong> A bare clone sets no
+                    <code>branch.&lt;name&gt;.remote</code> for any branch. The worktree is properly attached
+                    &mdash; <code>git status -sb</code> shows <code>## main</code> rather than
+                    <code>## main...origin/main</code> &mdash; but <code>git pull</code> fails with
+                    <em>"There is no tracking information for the current branch"</em> until you run the
+                    <code>--set-upstream-to</code> lines.
+                </p>
+                <p><strong>3. Two sets of refs that drift apart.</strong> A bare clone copies every remote
+                    branch into <code>refs/heads/*</code> and then freezes them. Later fetches only move
+                    <code>refs/remotes/origin/*</code>. A worktree added months after cloning checks out the
+                    clone-day commit and looks silently stale &mdash; hence the <code>git pull</code> above.
+                </p>
             </div>
 
             <h3>Non-bare alternative (simpler, less clean)</h3>
@@ -507,7 +532,8 @@
 <span class="comment"># Create from a remote branch: local branch + tracking in one step</span>
 <span class="cmd">git worktree add</span> <span class="flag">--track -b</span> <span class="arg">feature-x</span> <span class="path">&lt;path&gt;</span> <span class="arg">origin/feature-x</span>
 
-<span class="comment"># Shorthand when &lt;path&gt; basename matches the remote branch name</span>
+<span class="comment"># Shorthand when &lt;path&gt; basename matches a remote branch name AND</span>
+<span class="comment"># no local branch of that name exists (see the note below)</span>
 <span class="cmd">git worktree add</span> <span class="flag">--guess-remote</span> <span class="path">feature-x</span>
 
 <span class="comment"># Detached HEAD worktree (useful for inspecting a tag/commit)</span>
@@ -520,6 +546,15 @@
                 and a later <code>git pull</code> fails with
                 <code>You are not currently on a branch</code>. Use <code>--track -b</code>
                 (or <code>--guess-remote</code>) as shown above.
+            </div>
+
+            <div class="callout note">
+                <div class="callout-label">When --guess-remote actually fires</div>
+                <code>--guess-remote</code> only consults <code>origin/*</code> when <strong>no local
+                    branch</strong> of that name exists. After a bare clone every remote branch already
+                exists locally in <code>refs/heads/*</code>, so in the section 02 layout the flag is a no-op
+                and the local (possibly stale) branch wins. It is useful from a <em>normal</em> clone, where
+                only the default branch exists locally.
             </div>
 
             <h3>List worktrees</h3>
@@ -571,7 +606,7 @@
 
             <h3>Setting up a C++ worktree from scratch</h3>
             <pre><span class="cmd">cd</span> <span class="path">myproject</span>
-<span class="cmd">git worktree add</span> <span class="path">feature/cardiac-mesh</span>
+<span class="cmd">git worktree add</span> <span class="path">feature/cardiac-mesh</span> <span class="arg">feature/cardiac-mesh</span>
 <span class="cmd">cd</span> <span class="path">feature/cardiac-mesh</span>
 
 <span class="comment"># Configure &amp; build in-tree build/ directory</span>
@@ -675,10 +710,12 @@
 
             <div class="callout note">
                 <div class="callout-label">Naming convention</div>
-                When branch names contain slashes (e.g. <code>feature/cardiac-mesh</code>), git will
-                create nested directories for the worktree path if you pass the branch name directly.
-                This is usually what you want with the "bare + nested" layout. If not, provide an
-                explicit flat path: <code>git worktree add cardiac-mesh feature/cardiac-mesh</code>.
+                Path and branch are two separate arguments, and slashes behave differently in each. A path of
+                <code>feature/cardiac-mesh</code> creates nested directories, which suits the "bare + nested"
+                layout; a flat path keeps everything one level deep. Either way, name the branch explicitly:
+                <code>git worktree add feature/cardiac-mesh feature/cardiac-mesh</code> for nested, or
+                <code>git worktree add cardiac-mesh feature/cardiac-mesh</code> for flat. Never rely on the
+                path alone to select a branch with a slash in it &mdash; see the basename trap in section 08.
             </div>
         </section>
 
@@ -731,6 +768,38 @@
         <!-- ============================================================ -->
         <section id="s8">
             <h2><span class="sec-num">08</span> Gotchas &amp; Pitfalls</h2>
+
+            <div class="callout warn">
+                <div class="callout-label">The $(basename) trap &mdash; silently the wrong branch</div>
+                <p>With no branch argument, <code>git worktree add &lt;path&gt;</code> picks a branch named
+                    after <code>$(basename &lt;path&gt;)</code>. For <code>feature/cardiac-mesh</code> that
+                    basename is <code>cardiac-mesh</code>, <em>not</em> <code>feature/cardiac-mesh</code>.
+                    No such branch exists, so git helpfully creates one from <code>HEAD</code> &mdash; which
+                    in a bare repo is whatever <code>HEAD</code> points at, usually <code>main</code>.</p>
+                <p>You now sit in a directory called <code>feature/cardiac-mesh</code>, on a branch called
+                    <code>cardiac-mesh</code>, holding <code>main</code>'s code, with none of the feature
+                    work and no error message. Check with <code>git worktree list</code>, which prints the
+                    branch actually checked out.
+                </p>
+                <p><strong>Always pass the branch as a second argument.</strong> The one-argument form is
+                    only safe when path basename and branch name are identical.</p>
+            </div>
+
+            <div class="callout warn">
+                <div class="callout-label">Attached, but no upstream</div>
+                <p>A worktree can be correctly attached to a branch and still have nowhere to pull from.
+                    From a bare clone this is the norm, not the exception:</p>
+                <pre><span class="cmd">git status</span> <span class="flag">-sb</span>
+<span class="output">## main</span>            <span class="comment"># no "...origin/main" &mdash; no upstream</span>
+
+<span class="cmd">git pull</span>
+<span class="warn">There is no tracking information for the current branch.</span></pre>
+                <p>This is <em>not</em> a detached HEAD, and nothing is broken. Fix it per branch with
+                    <code>git branch --set-upstream-to=origin/&lt;branch&gt; &lt;branch&gt;</code>, or check
+                    the whole repo at once with <code>git branch -vv</code> &mdash; branches with no
+                    <code>[origin/...]</code> marker still need wiring.
+                </p>
+            </div>
 
             <div class="callout warn">
                 <div class="callout-label">One branch, one worktree</div>
@@ -812,8 +881,13 @@ shift
             <h3>post-checkout hook (per-worktree)</h3>
             <p>
                 Git hooks live in the shared <code>.git/hooks/</code> (or bare repo <code>hooks/</code>)
-                and fire for all worktrees. You can use the <code>$GIT_DIR</code> environment variable
-                inside hooks to determine <em>which</em> worktree triggered them.
+                and fire for all worktrees. To find <em>which</em> worktree triggered a hook, use
+                <code>$GIT_WORK_TREE</code> or simply <code>pwd</code> &mdash; hooks run with the working
+                directory set to the worktree root. <code>$GIT_DIR</code> is not what you want here: in a
+                linked worktree it points at the admin directory
+                <code>&lt;bare&gt;/worktrees/&lt;name&gt;</code>, not at the checkout.
+                Note that <code>git worktree add</code> fires <code>post-checkout</code> too, so the script
+                below runs automatically on every new worktree.
             </p>
             <pre><span class="comment">#!/usr/bin/env bash</span>
 <span class="comment"># .git/hooks/post-checkout</span>
@@ -891,6 +965,10 @@ fi</pre>
                     <tr>
                         <td>Clean up stale entries</td>
                         <td><code>git worktree prune</code></td>
+                    </tr>
+                    <tr>
+                        <td>Fix links after moving repo/worktrees</td>
+                        <td><code>git worktree repair [&lt;path&gt;...]</code></td>
                     </tr>
                     <tr>
                         <td>Lock (prevent prune)</td>
