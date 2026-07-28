@@ -23,10 +23,13 @@ url: # the base hostname & protocol for your site
 twitter_username: jsolislemus
 github_username:  alonsoJASL
 
-# Build settings: kramdown or GFM
-markdown: GFM 
+# Build settings. kramdown 2.x reads GitHub-flavoured markdown through a
+# separate parser gem, kramdown-parser-gfm (see Gemfile).
+markdown: kramdown
+kramdown:
+  input: GFM
 theme: minima
-gems:
+plugins:
   - jekyll-feed
 exclude:
   - Gemfile

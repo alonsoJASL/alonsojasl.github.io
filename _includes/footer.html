@@ -1,0 +1,19 @@
+<footer class="site-footer" role="contentinfo">
+
+  <div class="wrapper">
+
+    <p class="footer-name">{{ site.title | escape }}</p>
+
+    <ul class="footer-links">
+      <li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>
+      <li><a href="https://scholar.google.co.uk/citations?user=2_095cQAAAAJ&amp;hl=en">Scholar</a></li>
+      <li><a href="https://www.linkedin.com/in/alonsosolislemus">LinkedIn</a></li>
+      <li><a href="https://twitter.com/{{ site.twitter_username }}">Twitter</a></li>
+      <li><a href="{{ "/feed.xml" | relative_url }}">RSS</a></li>
+    </ul>
+
+    <p class="footer-note">&copy; {{ site.time | date: "%Y" }} &middot; Built with Jekyll</p>
+
+  </div>
+
+</footer>

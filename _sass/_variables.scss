@@ -1,0 +1,25 @@
+// Compile-time values shared by every partial.
+//
+// Colours deliberately do NOT live here. They are CSS custom properties in
+// _theme.scss, because Sass variables are resolved at build time and cannot
+// change when the reader switches between light and dark.
+
+$font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            "Helvetica Neue", Arial, sans-serif;
+$font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+            "Liberation Mono", monospace;
+
+$font-size-base:   17px;
+$line-height-base: 1.65;
+
+$spacing-unit:  32px;
+$content-width: 820px;
+
+$on-palm:   600px;
+$on-laptop: 820px;
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}

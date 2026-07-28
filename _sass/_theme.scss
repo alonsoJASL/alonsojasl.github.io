@@ -1,0 +1,59 @@
+// Dracula, dark by default.
+//
+// The dark values sit on :root so they apply when the reader has expressed no
+// preference. Light is Alucard, Dracula's official light counterpart, and only
+// takes over when the system explicitly asks for it.
+//
+// Two colours are lightened from stock Dracula to clear WCAG AA (4.5:1) against
+// their backgrounds: --text-muted and --syn-comment. Stock #6272a4 measures
+// about 3.0:1 on #282a36, which is fine for decoration but not for text.
+
+:root {
+  color-scheme: dark;
+
+  --bg:           #282a36;
+  --bg-raised:    #21222c;
+  --surface:      #343746;
+  --border:       #44475a;
+
+  --text:         #f8f8f2;
+  --text-muted:   #9ba5c8;
+
+  --accent:       #bd93f9; // purple
+  --accent-hover: #8be9fd; // cyan
+  --accent-quiet: #ff79c6; // pink
+
+  --syn-comment:  #7d8cc4;
+  --syn-keyword:  #ff79c6;
+  --syn-string:   #f1fa8c;
+  --syn-number:   #bd93f9;
+  --syn-function: #50fa7b;
+  --syn-type:     #8be9fd;
+  --syn-error:    #ff5555;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+
+    --bg:           #f8f8f2;
+    --bg-raised:    #eeeee4;
+    --surface:      #ffffff;
+    --border:       #d5d5c8;
+
+    --text:         #282a36;
+    --text-muted:   #5a5f7a;
+
+    --accent:       #644ac9;
+    --accent-hover: #036a96;
+    --accent-quiet: #a3144d;
+
+    --syn-comment:  #6c6783;
+    --syn-keyword:  #a3144d;
+    --syn-string:   #8a5d00;
+    --syn-number:   #644ac9;
+    --syn-function: #14710a;
+    --syn-type:     #036a96;
+    --syn-error:    #cb3a2a;
+  }
+}

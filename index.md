@@ -2,15 +2,13 @@
 layout: default
 ---
 
-<table>
-  <tr>
-    <th><a href="./images/mycv.pdf"><span style="color:#905"> CV </span></a></th>
-    <th><a href="https://github.com/alonsoJASL"><span style="color:#905"> github </span></a></th>
-    <th><a href="https://scholar.google.co.uk/citations?user=2_095cQAAAAJ&hl=en"><span style="color:#905"> google scholar </span></a></th>
-    <th><a href="https://www.researchgate.net/profile/Jose_Solis-Lemus"><span style="color:#905"> ResearchGate </span></a></th>
-    <th><a href="https://www.linkedin.com/in/alonsosolislemus"><span style="color:#905"> linkedin </span></a></th>
-  </tr>
-</table>
+<nav class="link-row" aria-label="Profiles">
+  <a href="./images/mycv.pdf">CV</a>
+  <a href="https://github.com/alonsoJASL">GitHub</a>
+  <a href="https://scholar.google.co.uk/citations?user=2_095cQAAAAJ&amp;hl=en">Google Scholar</a>
+  <a href="https://www.researchgate.net/profile/Jose_Solis-Lemus">ResearchGate</a>
+  <a href="https://www.linkedin.com/in/alonsosolislemus">LinkedIn</a>
+</nav>
 
 # about
 I am a Senior Software Engineer at Imperial College London, where I design and maintain production-grade data pipelines and software platforms for cardiovascular imaging research. My work sits at the intersection of software engineering and clinical practice: building systems that are reliable, maintainable, and usable by clinicians and researchers without software expertise.
@@ -33,16 +31,13 @@ I hold a PhD in Biomedical Engineering from City, University of London, and dual
 + [Marathon spectator briefing](./resources/marathon_spectator_briefing.html): Guide for spectating a marathon.
 
 # contact
-<img align="right" height="18%" width="18%" src="./images/Profilepic.jpeg">
-
-<div class="container">
-    <div class="row-fluid">
-        <div class="span5">
-            José Alonso Solís-Lemus<br/>
-            Imperial College London<br/>
-            London, UK<br/><br/>
-        </div>
-    </div>
+<div class="contact-card">
+  <img src="./images/Profilepic.jpeg" alt="Portrait of José Alonso Solís-Lemus">
+  <address>
+    José Alonso Solís-Lemus<br/>
+    Imperial College London<br/>
+    London, UK
+  </address>
 </div>
 
-For enquiries, connect via <a href="https://www.linkedin.com/in/alonsosolislemus">LinkedIn</a>.
+For enquiries, connect via [LinkedIn](https://www.linkedin.com/in/alonsosolislemus).
