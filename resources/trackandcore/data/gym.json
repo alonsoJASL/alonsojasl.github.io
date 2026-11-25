@@ -1,0 +1,35 @@
+{
+  "sessions": {
+    "A": {"name": "Climbing Strength", "focus": "Glutes, hamstrings and single-leg control. 40–50 min.", "exercises": [
+      {"name": "Romanian deadlift", "sets": "3 × 8", "tip": "Soft knees, hips back, flat back. Feel the hamstrings, then drive the hips forward."},
+      {"name": "Step-ups", "sets": "3 × 8 each leg", "tip": "Whole foot on the box. Drive through the heel and stand tall at the top."},
+      {"name": "Leg press", "sets": "3 × 8", "tip": "Feet hip-width apart. Lower with control. Do not lock the knees."},
+      {"name": "Hamstring curl", "sets": "3 × 10", "tip": "Hips stay on the pad. Lower slowly."},
+      {"name": "Calf press", "sets": "3 × 12", "tip": "Full range: deep stretch at the bottom, pause at the top."},
+      {"name": "Plank", "sets": "3 × 45 sec", "tip": "Elbows under the shoulders, straight line from head to heels."}
+    ],
+    "image": {"file": "session_a.jpeg", "alt": "Session A: pictures of the six exercises in the list above.", "credit": null}},
+    "B": {"name": "Descending Durability", "focus": "Eccentric quads, posterior chain and posture. 40–50 min.", "exercises": [
+      {"name": "Controlled step-downs", "sets": "3 × 6 each leg", "tip": "Lower slowly from a box, tap the heel lightly, knee in line with the toes."},
+      {"name": "Leg press", "sets": "3 × 6–8", "tip": "Press through mid-foot, slow on the way down. Do not lock the knees."},
+      {"name": "Prone hamstring curls", "sets": "3 × 10", "tip": "Hips down, curl the heels toward the glutes, lower slowly."},
+      {"name": "Single-leg calf raises", "sets": "3 × 8–12", "tip": "From a step: heel down, then a high raise. Pause at the top."},
+      {"name": "Back extensions", "sets": "2 × 10", "tip": "Hinge at the hips and lift to a straight line only. Do not over-arch."},
+      {"name": "Low rows", "sets": "2 × 10", "tip": "Chest up, elbows back, squeeze the shoulder blades."}
+    ],
+    "image": {"file": "session_b.jpeg", "alt": "Session B: pictures of the six exercises in the list above, each with its start and finish position.", "credit": null}}
+  },
+  "loads": {
+    "build": {"A": "3 sets, add load slowly", "B": "3 sets, add load slowly"},
+    "hold": {"A": "3 sets, hold the weight", "B": "3 sets, hold the weight"},
+    "taper": {"A": "2 sets", "B": "2 sets"},
+    "light": {"A": "2 sets, light", "B": "Mobility only"},
+    "none": {"A": "None", "B": "None"}
+  },
+  "rules": [
+    "Move with control, slow on the way down.",
+    "Keep 2–3 reps in reserve in every set.",
+    "Rest 60–90 sec between sets.",
+    "Heavy legs on Sunday? Move session B to Thursday, after the speed session."
+  ]
+}

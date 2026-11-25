@@ -1,0 +1,18 @@
+[
+  {"week": 1, "phase": "build", "type": "build", "gym": "build", "longNote": null, "quote": null, "changes": {}},
+  {"week": 2, "phase": "build", "type": "build", "gym": "build", "longNote": null, "quote": null, "changes": {}},
+  {"week": 3, "phase": "build", "type": "build", "gym": "build", "longNote": null, "quote": null, "changes": {}},
+  {"week": 4, "phase": "build", "type": "deload", "gym": "build", "longNote": null, "quote": null, "changes": {}},
+  {"week": 5, "phase": "endurance", "type": "build", "gym": "build", "longNote": null, "quote": null, "changes": {}},
+  {"week": 6, "phase": "endurance", "type": "build", "gym": "build", "longNote": null, "quote": null, "changes": {}},
+  {"week": 7, "phase": "endurance", "type": "build", "gym": "build", "longNote": null, "quote": null, "changes": {}},
+  {"week": 8, "phase": "endurance", "type": "deload", "gym": "build", "longNote": null, "quote": null, "changes": {}},
+  {"week": 9, "phase": "peak", "type": "build", "gym": "hold", "longNote": "Dress rehearsal: race kit, breakfast and gels.", "quote": null, "changes": {}},
+  {"week": 10, "phase": "peak", "type": "build", "gym": "hold", "longNote": "Walk breaks are fine.", "quote": null, "changes": {}},
+  {"week": 11, "phase": "peak", "type": "build", "gym": "hold", "longNote": "Longest run. Slow and steady, keep fuelling.", "quote": null, "changes": {}},
+  {"week": 12, "phase": "peak", "type": "deload", "gym": "hold", "longNote": null, "quote": null, "changes": {}},
+  {"week": 13, "phase": "taper", "type": "taper", "gym": "taper", "longNote": null, "quote": "“Tapering doesn’t mean stopping, it means fine-tuning.”", "changes": {}},
+  {"week": 14, "phase": "taper", "type": "taper", "gym": "taper", "longNote": null, "quote": null, "changes": {}},
+  {"week": 15, "phase": "taper", "type": "taper", "gym": "light", "longNote": null, "quote": "“Trust the taper.”", "changes": {"Sat": "Short, easy jog, or run a Parkrun."}},
+  {"week": 16, "phase": "race", "type": "race", "gym": "none", "longNote": null, "quote": "“Trust your training.”", "changes": {}}
+]

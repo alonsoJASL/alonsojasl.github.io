@@ -1,0 +1,11 @@
+{
+  "fromMph": 3, "toMph": 12, "stepMph": 0.2, "startMph": 6,
+  "distances": [
+    {"label": "3 mi", "distance": "3 mi"},
+    {"label": "5 km", "distance": "5 km"},
+    {"label": "8 km", "distance": "8 km"},
+    {"label": "10 km", "distance": "10 km"},
+    {"label": "Half", "distance": "21.0975 km"},
+    {"label": "Marathon", "distance": "42.195 km"}
+  ]
+}

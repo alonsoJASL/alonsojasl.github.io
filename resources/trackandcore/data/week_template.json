@@ -1,0 +1,9 @@
+[
+  {"label": "Mon", "kind": "rest", "text": "Rest, or light movement such as a walk."},
+  {"label": "Tue", "kind": "easy", "distanceKey": "tue", "gym": "A", "text": "Easy run, effort 5/10. You can hold a conversation."},
+  {"label": "Wed", "kind": "steady", "distanceKey": "wed", "text": "Steady run, effort 5–6/10. Comfortable, at an even pace."},
+  {"label": "Thu", "kind": "track", "distanceKey": "track", "text": null},
+  {"label": "Fri", "kind": "gym", "gym": "B", "text": ""},
+  {"label": "Sat", "kind": "optional", "text": "Rest, or run a Parkrun."},
+  {"label": "Sun", "kind": "long", "distanceKey": "long", "text": "Long run, effort 6/10. Keep it easy."}
+]

@@ -1,0 +1,8 @@
+[
+  {"id": "base", "name": "Base build", "focus": "Build routine, consistency and foundational mileage."},
+  {"id": "build", "name": "Build", "focus": "Build routine, consistency and foundational mileage."},
+  {"id": "endurance", "name": "Endurance", "focus": "Gradual mileage increases, structured long runs and an even effort."},
+  {"id": "peak", "name": "Peak", "focus": "Longest runs, highest mileage weeks and sharpening efforts."},
+  {"id": "taper", "name": "Taper", "focus": "Recovery, sharpening and race preparation, with mindset and purpose."},
+  {"id": "race", "name": "Race week", "focus": "Recovery, sharpening and race preparation, with mindset and purpose."}
+]

@@ -1,0 +1,20 @@
+[
+  {"id": "brighton", "name": "Brighton", "raceDate": "2027-04-04", "baseWeeks": 2, "status": "draft", "raceWeekNote": null, "raceWeekDays": [
+    {"label": "Mon", "kind": "rest", "text": "Rest, or light movement such as a walk, yoga or stretching."},
+    {"label": "Tue", "kind": "optional", "text": "Optional: mobility and stretching."},
+    {"label": "Wed", "kind": "rest", "text": "Rest."},
+    {"label": "Thu", "kind": "track", "distance": "5 km", "text": null},
+    {"label": "Fri", "kind": "rest", "text": "Rest, or some light mobility."},
+    {"label": "Sat", "kind": "shakeout", "distance": "5 km", "text": "Shakeout run. Easy jog with a few strides at the end."},
+    {"label": "Sun", "kind": "race", "distance": "26.2 mi", "text": "Race day! Hold back for the first 10 km, settle into an even effort, then use what you have left."}
+  ] },
+  {"id": "london", "name": "London", "raceDate": "2027-04-24", "baseWeeks": 4, "status": "draft", "raceWeekNote": "Racing on Sunday 25 April? Rest on Friday and do the shakeout run on Saturday.", "raceWeekDays": [
+    {"label": "Mon", "kind": "rest", "text": "Rest, or light movement such as a walk, yoga or stretching."},
+    {"label": "Tue", "kind": "optional", "text": "Optional: mobility and stretching."},
+    {"label": "Wed", "kind": "rest", "text": "Rest."},
+    {"label": "Thu", "kind": "track", "distance": "5 km", "text": null},
+    {"label": "Fri", "kind": "shakeout", "distance": "5 km", "text": "Shakeout run. Easy jog with a few strides at the end."},
+    {"label": "Sat", "kind": "race", "distance": "26.2 mi", "text": "Race day! Hold back for the first 10 km, settle into an even effort, then use what you have left."},
+    {"label": "Sun", "kind": "rest", "text": "Rest. Cheer for the Sunday runners."}
+  ] }
+]

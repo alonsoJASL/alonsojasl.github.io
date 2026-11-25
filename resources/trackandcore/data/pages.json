@@ -1,0 +1,10 @@
+[
+  {"id": "welcome", "title": "Welcome", "path": "./"},
+  {"id": "plan", "title": "Plan", "path": "plan/"},
+  {"id": "strength", "title": "Strength", "path": "strength/"},
+  {"id": "mobility", "title": "Mobility", "path": "mobility/"},
+  {"id": "nutrition", "title": "Nutrition", "path": "nutrition/"},
+  {"id": "faqs", "title": "FAQs", "path": "faqs/"},
+  {"id": "pace", "title": "Pace", "path": "pace/"},
+  {"id": "resources", "title": "Resources", "path": "resources/"}
+]

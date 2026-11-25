@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>Pace: Track &amp; Core Marathon Plan 2027</title>
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="module" src="../js/pace_page.js"></script>
+</head>
+<body class="page-pace">
+  <main>
+    <nav id="menu" class="menu" aria-label="Pages" data-root="../" data-page="pace"></nav>
+    <header class="page-header">
+      <h1>Track&nbsp;&amp;&nbsp;Core <span>Pace</span></h1>
+    </header>
+    <div id="content" class="text">
+      <section class="warning">
+        <h2>Your first marathon is your biggest PB.</h2>
+        <p>Do not chase a pace or a time. This table is for curiosity and for later marathons. It assumes an even pace on a flat course. Watches often read long on race day.</p>
+      </section>
+      <section>
+        <h2>Speeds and times</h2>
+        <div class="segmented" role="group" aria-label="View">
+          <button id="view-table" type="button" aria-pressed="true">Full table</button>
+          <button id="view-row" type="button" aria-pressed="false">Find my row</button>
+        </div>
+        <div id="pace-table">Loading the table…</div>
+        <div id="pace-finder" class="panel" hidden>
+          <label for="pace-slider">Marathon time (hours)</label>
+          <input id="pace-slider" type="range" min="0" step="1">
+          <p class="slider-ends"><span id="pace-slowest"></span><span id="pace-fastest"></span></p>
+          <div id="pace-row"></div>
+        </div>
+      </section>
+    </div>
+    <noscript>The table needs JavaScript. <a href="../plan/">Back to the plan</a></noscript>
+  </main>
+</body>
+</html>

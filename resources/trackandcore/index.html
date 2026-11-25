@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>Track &amp; Core Marathon Plan 2027</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/welcome_page.js"></script>
+</head>
+<body class="page-welcome">
+  <main>
+    <nav id="menu" class="menu" aria-label="Pages" data-root="./" data-page="welcome"></nav>
+    <header class="page-header">
+      <h1>Track&nbsp;&amp;&nbsp;Core <span>Marathon Plan 2027</span></h1>
+    </header>
+    <!-- To confirm a text, delete its line with class="draft". -->
+    <div id="content" class="text">
+      <section>
+        <h2>Welcome</h2>
+        <p>Your first marathon or your tenth: we are happy that you train with us. We believe that we can do hard things, and that we do them better together.</p>
+        <p>The plan is simple: easy runs, one long run each week, strength and rest. It goes by effort, not by pace. Start easy, enjoy the training and finish with a smile.</p>
+      </section>
+      <section>
+        <h2>Start dates</h2>
+        <div id="start-dates" class="starts">Loading the dates…</div>
+      </section>
+      <section>
+        <h2>The long runs</h2>
+        <p>The long run is the heart of each week. The colours show the phases.</p>
+        <p id="races-label" class="switch-label">Choose plan</p>
+        <div id="races" class="segmented" role="group" aria-labelledby="races-label"></div>
+        <p id="status" class="visually-hidden" role="status"></p>
+        <div id="chart" class="welcome-chart"></div>
+        <p id="plan-links" class="links"></p>
+      </section>
+      <section>
+        <h2>The phases</h2>
+        <ul id="phases" class="entries"></ul>
+      </section>
+      <section>
+        <h2>The sessions</h2>
+        <p>Effort is a feeling from 1 to 10: 1 is a walk, 10 is all that you have.</p>
+        <ul class="entries">
+          <li class="entry kind-easy"><b class="tag">Easy</b> <span>effort 5/10</span><p>You can hold a conversation. Slow down or walk if necessary.</p></li>
+          <li class="entry kind-steady"><b class="tag">Steady</b> <span>effort 5–6/10</span><p>Comfortable, at an even pace.</p></li>
+          <li class="entry kind-long"><b class="tag">Long run</b> <span>effort 6/10</span><p>Time on your feet, and practice for food and kit. Walk breaks are fine.</p></li>
+          <li class="entry kind-track"><b class="tag">Speed</b> <span>effort up to 8/10</span>
+            <p class="draft"><span class="badge badge-draft">Draft: captains to confirm</span></p>
+            <p>Thursdays. The T&amp;C coach provides the session. No track in December.</p></li>
+          <li class="entry kind-gym"><b class="tag">Strength</b><p>Session A and session B, for legs that go up and down hills. See <a href="strength/">Strength</a>.</p></li>
+          <li class="entry kind-optional"><b class="tag">Optional</b><p>Rest, or run a Parkrun. You do not miss anything if you rest.</p></li>
+        </ul>
+      </section>
+      <section>
+        <h2>Find your way</h2>
+        <dl class="pairs">
+          <dt><a href="plan/">Plan</a></dt><dd>Your week, day by day, and all the long runs</dd>
+          <dt><a href="strength/">Strength</a></dt><dd>Session A, session B and the recommended plan</dd>
+          <dt><a href="mobility/">Mobility</a></dt><dd>Before and after your runs</dd>
+          <dt><a href="nutrition/">Nutrition</a></dt><dd>Around your runs, every day and in race week</dd>
+          <dt><a href="faqs/">FAQs</a></dt><dd>Gels, hydration, gait analysis and training</dd>
+          <dt><a href="pace/">Pace</a></dt><dd>Speeds and times, for curiosity</dd>
+          <dt><a href="resources/">Resources</a></dt><dd>Coaches, races and links</dd>
+        </dl>
+      </section>
+    </div>
+    <noscript>The dates and the chart need JavaScript. <a href="plan/">Go to the plan</a></noscript>
+  </main>
+</body>
+</html>

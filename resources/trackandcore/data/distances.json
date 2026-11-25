@@ -1,0 +1,17 @@
+[
+  {"week": 1, "status": "draft", "tue": "2 mi", "wed": "3 mi", "track": "6 km", "long": "6 mi"},
+  {"week": 2, "status": "draft", "tue": "2.5 mi", "wed": "3.5 mi", "track": "6 km", "long": "8 mi"},
+  {"week": 3, "status": "draft", "tue": "3 mi", "wed": "4 mi", "track": "6 km", "long": "10 mi"},
+  {"week": 4, "status": "draft", "tue": "3.5 mi", "wed": "4.5 mi", "track": "6 km", "long": "6 mi"},
+  {"week": 5, "status": "draft", "tue": "4 mi", "wed": "5 mi", "track": "7 km", "long": "12 mi"},
+  {"week": 6, "status": "draft", "tue": "4.5 mi", "wed": "5.5 mi", "track": "7 km", "long": "14 mi"},
+  {"week": 7, "status": "draft", "tue": "5 mi", "wed": "6 mi", "track": "7 km", "long": "16 mi"},
+  {"week": 8, "status": "draft", "tue": "5.5 mi", "wed": "6.5 mi", "track": "7 km", "long": "10 mi"},
+  {"week": 9, "status": "draft", "tue": "6 mi", "wed": "7 mi", "track": "8 km", "long": "30 km"},
+  {"week": 10, "status": "draft", "tue": "5 mi", "wed": "6 mi", "track": "8 km", "long": "32 km"},
+  {"week": 11, "status": "draft", "tue": "6 mi", "wed": "7 mi", "track": "8 km", "long": "35 km"},
+  {"week": 12, "status": "draft", "tue": "6.5 mi", "wed": "7.5 mi", "track": "8 km", "long": "13 mi"},
+  {"week": 13, "status": "draft", "tue": "6.5 mi", "wed": "8 mi", "track": "6 km", "long": "21 km"},
+  {"week": 14, "status": "draft", "tue": "4 mi", "wed": "5 mi", "track": "6 km", "long": "16 km"},
+  {"week": 15, "status": "draft", "tue": "3 mi", "wed": "4 mi", "track": "5 km", "long": "12 km"}
+]

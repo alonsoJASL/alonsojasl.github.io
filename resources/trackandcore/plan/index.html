@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>Plan: Track &amp; Core Marathon Plan 2027</title>
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="module" src="../js/main.js"></script>
+</head>
+<body class="page-plan">
+  <main>
+    <nav id="menu" class="menu" aria-label="Pages" data-root="../" data-page="plan"></nav>
+    <header class="page-header">
+      <div class="title-row">
+        <h1>Track&nbsp;&amp;&nbsp;Core <span>Marathon Plan 2027</span></h1>
+        <p id="countdown" class="countdown"></p>
+      </div>
+      <div class="switches">
+        <div>
+          <p id="races-label" class="switch-label">Choose plan</p>
+          <div id="races" class="segmented" role="group" aria-labelledby="races-label"></div>
+        </div>
+        <div>
+          <p id="views-label" class="switch-label">Choose view</p>
+          <div class="segmented" role="group" aria-labelledby="views-label">
+            <button id="view-week" type="button" aria-pressed="true">Week</button>
+            <button id="view-long" type="button" aria-pressed="false">Long runs</button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav id="strip" class="strip" aria-label="All weeks" hidden></nav>
+    <p id="status" class="visually-hidden" role="status"></p>
+    <div id="content" tabindex="-1">Loading the plan…</div>
+    <div class="settings">
+      <div id="units" class="segmented" role="group" aria-label="Units">
+        <button type="button" data-units="both">km + mi</button>
+        <button type="button" data-units="km">km</button>
+        <button type="button" data-units="mi">mi</button>
+      </div>
+    </div>
+    <nav id="week-nav" class="week-nav" aria-label="Change week" hidden>
+      <button id="previous" type="button">Previous</button>
+      <button id="today" type="button">Today</button>
+      <button id="next" type="button">Next</button>
+    </nav>
+    <noscript>This page needs JavaScript.</noscript>
+  </main>
+</body>
+</html>

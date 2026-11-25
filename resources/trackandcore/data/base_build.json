@@ -1,0 +1,9 @@
+{"phase": "base", "days": [
+  {"label": "Mon", "kind": "rest", "text": "Full rest, or very light movement."},
+  {"label": "Tue", "kind": "easy", "distance": "5 km", "text": "Easy run, effort 5/10. You can hold a conversation."},
+  {"label": "Wed", "kind": "strength", "text": "Strength work, 45 min: core, glutes and drills."},
+  {"label": "Thu", "kind": "track", "text": null},
+  {"label": "Fri", "kind": "optional", "text": "Optional: yoga, gym or bodyweight work, 45 min."},
+  {"label": "Sat", "kind": "rest", "text": "Full rest."},
+  {"label": "Sun", "kind": "long", "distance": "10 km", "text": "Long run, effort 6/10. Even pace, good form."}
+] }

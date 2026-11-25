@@ -1,5 +1,9 @@
 _site
 .sass-cache
 .jekyll-metadata
+.DS_Store
 
 CLAUDE.md
+resources/trackandcore/sources/
+resources/trackandcore/assets/exercises/session_a.jpeg
+resources/trackandcore/assets/exercises/session_b.jpeg
