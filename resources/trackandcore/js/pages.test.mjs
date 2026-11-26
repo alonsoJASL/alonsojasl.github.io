@@ -125,6 +125,14 @@ test("nutrition: three cards, each with its own id", () => {
   assert.equal(new Set(cards.map((match) => match[1])).size, 3);
 });
 
+test("mobility: three cards, each with its own id, and the toolkit outside them", () => {
+  const html = readText("mobility/index.html");
+  const cards = [...html.matchAll(/<section id="([\w-]+)" class="panel" data-card="[^"]+"/g)];
+  assert.equal(new Set(cards.map((match) => match[1])).size, 3);
+  assert.match(html, /data-cards="Routine"[\s\S]*<\/div>\s*<section id="toolkit">/);
+});
+
+
 test("faqs: all questions share one name, so that only one is open", () => {
   const questions = [...readText("faqs/index.html").matchAll(/<details[^>]*>/g)].map((match) => match[0]);
   assert.ok(questions.length > 10);
